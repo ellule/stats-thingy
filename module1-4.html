@@ -1,125 +1,427 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>MDM4U</title>
+<title>MDM4U - Les sources de données</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
-body {font-family: "Roboto", sans-serif}
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.7;
+  background-color: #f7fafa;
+}
+
 .w3-bar-block .w3-bar-item {
   padding: 16px;
   font-weight: bold;
 }
+
+.content-card {
+  background: white;
+  padding: 24px;
+  margin: 24px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.example {
+  background: #e0f2f1;
+  border-left: 5px solid #009688;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.warning {
+  background: #fff3e0;
+  border-left: 5px solid #ff9800;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.definition {
+  color: #00695c;
+  font-weight: bold;
+}
+
+th {
+  background-color: #009688;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.resource-link {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .content-card {
+    padding: 16px;
+  }
+}
 </style>
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<body>
+
+<!-- Navigation -->
+<div id="nav-placeholder"></div>
 
 <script>
 $(function(){
   $("#nav-placeholder").load("nav.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!-- End navigation -->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+  </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">1.1 - Représentation des données</h1>
-</header>
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">1.1 - Les sources de données</h1>
+    <p class="w3-xlarge">D'où viennent les données et comment peut-on les utiliser?</p>
+  </header>
 
-<div class="w3-container" style="padding:32px">
+  <main class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
+    <!-- Introduction -->
+    <section class="content-card">
+      <h2><i class="fa fa-database"></i> Qu'est-ce qu'une source de données?</h2>
 
-<h1>Les sources de données</h1>
+      <p>Une <span class="definition">source de données</span> est l'endroit ou le moyen par lequel on obtient des renseignements pour répondre à une question, réaliser une étude ou analyser une situation.</p>
 
-<h3>Sources de données primaires</h3>
-<p>
-Les sources de données primaires sont des données recueillies directement par une personne ou une organisation dans le but de répondre à une question précise.
-</p>
+      <p>En statistique, les données peuvent être recueillies directement pour une étude ou provenir de données déjà recueillies par quelqu'un d'autre.</p>
 
-<p>
-<a href="https://drive.google.com/file/d/1Ciyu_CLFLwyZOQP5fX5oeX1lS73pGFS7/view?usp=sharing">
-Voir les notes de cours sur les sources de données primaires
-</a>
-</p>
+      <p>On distingue donc deux grandes catégories :</p>
 
+      <ul>
+        <li><strong>Les sources de données primaires</strong> : les données sont recueillies directement par la personne ou l'organisation qui réalise l'étude.</li>
+        <li><strong>Les sources de données secondaires</strong> : on utilise des données qui ont déjà été recueillies par une autre personne ou organisation.</li>
+      </ul>
+    </section>
 
-<h3>Sources de données secondaires</h3>
-<p>
-Les sources de données secondaires sont des données qui ont déjà été recueillies par une autre personne ou une organisation et qui peuvent être utilisées pour une nouvelle étude ou analyse.
-</p>
+    <!-- Primary data -->
+    <section class="content-card">
+      <h2>1. Les sources de données primaires</h2>
 
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/6VVBVi0imAE"
-title="Données de Statistique Canada"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
+      <p>Les <span class="definition">données primaires</span> sont des données recueillies directement dans le but de répondre à une question précise.</p>
 
+      <p>La personne qui réalise l'étude recueille elle-même les renseignements dont elle a besoin.</p>
 
-<h3>Exercices</h3>
-<p>
-Voici le document contenant les exercices de pratique complétés.
-</p>
+      <h3>Comment recueillir des données primaires?</h3>
 
-<p>
-<a href="https://docs.google.com/document/d/119MYPEaq6ZeBK0mI-TDDuI0JUFX_Gm0OjHydFI9CYFM/edit?usp=sharing" target="_blank">
-Voir les exercices de pratique
-</a>
-</p>
+      <ul>
+        <li><strong>Sondage :</strong> demander à des personnes de répondre à des questions.</li>
+        <li><strong>Entrevue :</strong> poser des questions directement à une personne.</li>
+        <li><strong>Observation :</strong> observer une situation et noter ce qui se passe.</li>
+        <li><strong>Expérience :</strong> réaliser un test pour étudier un phénomène.</li>
+        <li><strong>Mesure :</strong> mesurer directement une caractéristique, comme la température ou la durée d'une activité.</li>
+      </ul>
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+      <div class="example">
+        <strong>Exemple :</strong> Tu veux savoir combien d'heures les élèves de ton école consacrent à leurs devoirs chaque semaine. Tu crées un sondage et tu recueilles toi-même les réponses.
+        <br><br>
+        Les données sont primaires parce que tu les as recueillies directement pour ton étude.
+      </div>
 
-</div>
+      <h3>Avantages</h3>
+      <ul>
+        <li>Les données sont recueillies pour répondre à ta question précise.</li>
+        <li>Tu peux choisir les questions et les renseignements à recueillir.</li>
+        <li>Tu peux mieux contrôler la façon dont les données sont recueillies.</li>
+      </ul>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
+      <h3>Limites</h3>
+      <ul>
+        <li>La collecte peut prendre beaucoup de temps.</li>
+        <li>Elle peut coûter de l'argent ou demander beaucoup d'organisation.</li>
+        <li>Les réponses peuvent être influencées par la méthode utilisée ou par les personnes interrogées.</li>
+      </ul>
+
+      <a class="w3-button w3-teal w3-round-large resource-link"
+         href="https://drive.google.com/file/d/1Ciyu_CLFLwyZOQP5fX5oeX1lS73pGFS7/view?usp=sharing"
+         target="_blank"
+         rel="noopener noreferrer">
+        <i class="fa fa-file-text"></i> Voir les notes de cours
+      </a>
+    </section>
+
+    <!-- Secondary data -->
+    <section class="content-card">
+      <h2>2. Les sources de données secondaires</h2>
+
+      <p>Les <span class="definition">données secondaires</span> sont des données qui ont déjà été recueillies par une autre personne ou organisation et que l'on utilise pour une nouvelle étude ou analyse.</p>
+
+      <p>Au lieu de recueillir toutes les données soi-même, on utilise des renseignements qui existent déjà.</p>
+
+      <h3>Exemples de sources secondaires</h3>
+
+      <ul>
+        <li><strong>Statistique Canada :</strong> statistiques sur la population, l'emploi, les revenus et bien d'autres sujets.</li>
+        <li><strong>Rapports gouvernementaux :</strong> données sur les écoles, la santé ou l'environnement.</li>
+        <li><strong>Articles scientifiques :</strong> résultats d'études réalisées par des chercheurs.</li>
+        <li><strong>Livres et bases de données :</strong> renseignements déjà publiés et organisés.</li>
+        <li><strong>Rapports d'organisations :</strong> données recueillies auparavant dans le cadre de leurs activités.</li>
+      </ul>
+
+      <div class="example">
+        <strong>Exemple :</strong> Tu veux connaître l'évolution de la population du Canada. Tu consultes les statistiques déjà publiées par Statistique Canada au lieu de compter toi-même les habitants.
+        <br><br>
+        Les données sont secondaires parce qu'elles ont déjà été recueillies et publiées par une autre organisation.
+      </div>
+
+      <h3>Avantages</h3>
+      <ul>
+        <li>Les données sont souvent plus rapides et moins coûteuses à obtenir.</li>
+        <li>Elles peuvent couvrir une grande population ou une longue période.</li>
+        <li>Elles permettent de comparer des renseignements provenant de différentes années ou régions.</li>
+      </ul>
+
+      <h3>Limites</h3>
+      <ul>
+        <li>Les données ne correspondent pas toujours exactement à la question que tu veux étudier.</li>
+        <li>La méthode utilisée pour les recueillir peut être différente de celle que tu aurais choisie.</li>
+        <li>Les données peuvent être anciennes, incomplètes ou ne pas être adaptées à ton étude.</li>
+      </ul>
+
+      <div class="warning">
+        <strong>À vérifier :</strong> Avant d'utiliser des données secondaires, vérifie qui les a recueillies, quand elles ont été publiées, comment elles ont été obtenues et si la source est fiable.
+      </div>
+
+      <h3>Vidéo : Statistique Canada</h3>
+      <p>Cette vidéo présente Statistique Canada, une source importante de données publiées qui peuvent être utilisées dans des études.</p>
+
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/6VVBVi0imAE"
+          title="Données de Statistique Canada"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="content-card">
+      <h2><i class="fa fa-table"></i> Comparaison des deux types de données</h2>
+
+      <div style="overflow-x:auto;">
+        <table class="w3-table-all">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>Données primaires</th>
+              <th>Données secondaires</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Origine</strong></td>
+              <td>Recueillies directement pour l'étude.</td>
+              <td>Déjà recueillies par quelqu'un d'autre ou pour une autre raison.</td>
+            </tr>
+            <tr>
+              <td><strong>Méthodes</strong></td>
+              <td>Sondages, entrevues, observations, expériences ou mesures.</td>
+              <td>Rapports, statistiques publiées, articles, livres et bases de données.</td>
+            </tr>
+            <tr>
+              <td><strong>Temps et coût</strong></td>
+              <td>Peuvent demander plus de temps et de ressources.</td>
+              <td>Souvent plus rapides et moins coûteuses à obtenir.</td>
+            </tr>
+            <tr>
+              <td><strong>Avantage principal</strong></td>
+              <td>Adaptées à la question étudiée.</td>
+              <td>Permettent d'utiliser des renseignements déjà disponibles.</td>
+            </tr>
+            <tr>
+              <td><strong>Limite principale</strong></td>
+              <td>La collecte peut être longue ou coûteuse.</td>
+              <td>Les données peuvent ne pas correspondre exactement au besoin.</td>
+            </tr>
+            <tr>
+              <td><strong>Exemple</strong></td>
+              <td>Créer un sondage dans ton école.</td>
+              <td>Consulter un rapport de Statistique Canada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Reliability -->
+    <section class="content-card">
+      <h2><i class="fa fa-check-circle"></i> Comment évaluer une source de données?</h2>
+
+      <p>Qu'elles soient primaires ou secondaires, les données doivent être évaluées avant d'être utilisées.</p>
+
+      <ul>
+        <li><strong>La fiabilité :</strong> la source est-elle crédible et les données ont-elles été recueillies correctement?</li>
+        <li><strong>La date :</strong> les données sont-elles assez récentes pour répondre à la question?</li>
+        <li><strong>La méthode :</strong> comment les renseignements ont-ils été recueillis?</li>
+        <li><strong>La représentativité :</strong> les personnes ou les éléments étudiés représentent-ils bien la population visée?</li>
+        <li><strong>La pertinence :</strong> les données répondent-elles vraiment à la question étudiée?</li>
+        <li><strong>Les biais :</strong> y a-t-il des facteurs qui pourraient influencer les résultats?</li>
+      </ul>
+
+      <div class="example">
+        <strong>Exemple :</strong> Un sondage publié sur les réseaux sociaux demande aux gens s'ils aiment un nouveau produit. Les résultats peuvent être intéressants, mais les personnes qui répondent ne représentent pas nécessairement toute la population. Il faut donc être prudent avant de tirer une conclusion générale.
+      </div>
+    </section>
+
+    <!-- Practice -->
+    <section class="content-card">
+      <h2><i class="fa fa-pencil"></i> Petit exercice de révision</h2>
+
+      <p>Pour chaque situation, détermine si les données sont primaires ou secondaires. Clique sur la situation pour voir la réponse.</p>
+
+      <details>
+        <summary><strong>Situation 1</strong></summary>
+        <p>Tu demandes à 40 élèves combien de temps ils passent à étudier chaque soir.</p>
+        <p><strong>Réponse :</strong> Données primaires, car tu recueilles directement les réponses pour ton étude.</p>
+      </details>
+
+      <hr>
+
+      <details>
+        <summary><strong>Situation 2</strong></summary>
+        <p>Tu utilises un rapport de Statistique Canada pour comparer la population de différentes provinces.</p>
+        <p><strong>Réponse :</strong> Données secondaires, car tu utilises des données déjà publiées.</p>
+      </details>
+
+      <hr>
+
+      <details>
+        <summary><strong>Situation 3</strong></summary>
+        <p>Tu observes et comptes le nombre de voitures qui passent devant ton école pendant 30 minutes.</p>
+        <p><strong>Réponse :</strong> Données primaires, car tu effectues toi-même les observations et les mesures.</p>
+      </details>
+
+      <hr>
+
+      <details>
+        <summary><strong>Situation 4</strong></summary>
+        <p>Tu utilises les résultats d'une étude scientifique publiée l'année précédente pour appuyer ton travail.</p>
+        <p><strong>Réponse :</strong> Données secondaires, car les résultats ont déjà été recueillis et publiés par d'autres chercheurs.</p>
+      </details>
+    </section>
+
+    <!-- Exercises -->
+    <section class="content-card w3-center">
+      <h2><i class="fa fa-book"></i> Exercices de pratique</h2>
+
+      <p>Consulte le document d'exercices pour mettre tes connaissances en pratique.</p>
+
+      <a class="w3-button w3-teal w3-round-large w3-padding-large"
+         href="https://docs.google.com/document/d/119MYPEaq6ZeBK0mI-TDDuI0JUFX_Gm0OjHydFI9CYFM/edit?usp=sharing"
+         target="_blank"
+         rel="noopener noreferrer">
+        <i class="fa fa-external-link"></i> Voir les exercices
+      </a>
+    </section>
+
+    <!-- Summary -->
+    <section class="content-card">
+      <h2><i class="fa fa-check-circle"></i> Résumé</h2>
+
+      <ul>
+        <li><strong>Données primaires :</strong> données recueillies directement pour une étude.</li>
+        <li><strong>Données secondaires :</strong> données déjà recueillies et utilisées pour une nouvelle étude ou analyse.</li>
+        <li>Les données primaires sont souvent plus adaptées à une question précise, mais peuvent demander plus de temps et de ressources.</li>
+        <li>Les données secondaires sont souvent plus rapides à obtenir, mais il faut vérifier qu'elles sont pertinentes et fiables.</li>
+        <li>Il faut toujours examiner la source, la date, la méthode de collecte et les biais possibles.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
 </div>
 
 <script>
-// Open and close the sidebar on medium and small screens
+// Ouvrir et fermer la barre latérale
 function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
+  var sidebar = document.getElementById("mySidebar");
+  var overlay = document.getElementById("myOverlay");
+
+  if (sidebar) sidebar.style.display = "block";
+  if (overlay) overlay.style.display = "block";
 }
 
 function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
+  var sidebar = document.getElementById("mySidebar");
+  var overlay = document.getElementById("myOverlay");
+
+  if (sidebar) sidebar.style.display = "none";
+  if (overlay) overlay.style.display = "none";
 }
 
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
+// Modifier la barre supérieure lors du défilement
+window.onscroll = function() {
+  var top = document.getElementById("myTop");
+  var intro = document.getElementById("myIntro");
+
+  if (!top || !intro) return;
+
+  if (document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80) {
+    top.classList.add("w3-card-4", "w3-animate-opacity");
+    intro.classList.add("w3-show-inline-block");
   } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+    intro.classList.remove("w3-show-inline-block");
+    top.classList.remove("w3-card-4", "w3-animate-opacity");
   }
-}
-
+};
 </script>
-     
+
 </body>
-</html> 
+</html>
