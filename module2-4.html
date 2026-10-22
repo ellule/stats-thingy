@@ -1,1 +1,436 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>MDM4U</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Import MathJax -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+<style>
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.w3-bar-block .w3-bar-item {
+    padding: 16px;
+    font-weight: bold;
+}
+
+.content-section {
+    margin-bottom: 32px;
+}
+
+.normal-image {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.video-container {
+    max-width: 560px;
+    margin: 16px 0;
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
+.resource-link {
+    color: #008080;
+    font-weight: bold;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+<div id="nav-placeholder"></div>
+
+<script>
+$(function(){
+    $("#nav-placeholder").load("nav.html");
+});
+</script>
+<!-- End of Navigation bar -->
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+<!-- Top bar -->
+<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+        <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+           onclick="w3_open()"></i>
+        <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+</div>
+
+<!-- Page header -->
+<header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">2.4 - La distribution normale</h1>
+</header>
+
+<!-- Main content -->
+<div class="w3-container" style="padding:32px">
+
+    <!-- Introduction -->
+    <div class="content-section">
+        <h3>La distribution normale</h3>
+
+        <p>
+            Une distribution normale est une distribution de données qui forme
+            une courbe en forme de cloche. Elle est symétrique et la plupart des
+            valeurs se trouvent près de la moyenne. Plus on s'éloigne de la
+            moyenne, moins les valeurs sont fréquentes.
+        </p>
+
+        <p>
+            Dans une distribution normale, la moyenne, la médiane et le mode
+            se trouvent au centre de la courbe.
+        </p>
+    </div>
+
+    <!-- Normal distribution image -->
+    <div class="content-section">
+        <h3>Image d'une distribution normale</h3>
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Standard_deviation_diagram.svg"
+            alt="Courbe de distribution normale montrant la moyenne et les écarts types"
+            class="normal-image">
+
+        <p>
+            <strong>Source de l'image :</strong>
+            <a href="https://commons.wikimedia.org/wiki/File:Standard_deviation_diagram.svg"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Wikimedia Commons - Standard deviation diagram
+            </a>
+        </p>
+
+        <p>
+            La courbe montre comment les données se répartissent autour de la
+            moyenne. Les écarts types permettent de comprendre à quelle distance
+            les valeurs se trouvent du centre.
+        </p>
+    </div>
+
+    <!-- Important characteristics -->
+    <div class="content-section">
+        <h3>Les caractéristiques d'une distribution normale</h3>
+
+        <ul>
+            <li>La courbe a une forme de cloche.</li>
+            <li>Elle est symétrique autour de la moyenne.</li>
+            <li>La moyenne, la médiane et le mode sont égaux.</li>
+            <li>La majorité des données se trouvent près de la moyenne.</li>
+            <li>Les données deviennent moins fréquentes lorsqu'on s'éloigne du centre.</li>
+        </ul>
+    </div>
+
+    <!-- Empirical rule -->
+    <div class="content-section">
+        <h3>La règle empirique</h3>
+
+        <p>
+            Dans une distribution normale, on utilise la règle 68-95-99,7
+            pour décrire la répartition des données autour de la moyenne.
+        </p>
+
+        <ul>
+            <li>Environ 68 % des données se trouvent à un écart type de la moyenne.</li>
+            <li>Environ 95 % des données se trouvent à deux écarts types de la moyenne.</li>
+            <li>Environ 99,7 % des données se trouvent à trois écarts types de la moyenne.</li>
+        </ul>
+
+        <p><strong>Représentation mathématique :</strong></p>
+
+        <p>
+            \[
+            \begin{aligned}
+            \mu \pm 1\sigma &\approx 68\% \\
+            \mu \pm 2\sigma &\approx 95\% \\
+            \mu \pm 3\sigma &\approx 99{,}7\%
+            \end{aligned}
+            \]
+        </p>
+
+        <p>
+            Dans ces formules, \(\mu\) représente la moyenne et \(\sigma\)
+            représente l'écart type.
+        </p>
+    </div>
+
+    <!-- Video -->
+    <div class="content-section">
+        <h3>Vidéo explicative : l'écart réduit</h3>
+
+        <p>
+            L'écart réduit, aussi appelé score Z, permet de déterminer à combien
+            d'écarts types une valeur se situe de la moyenne.
+        </p>
+
+        <p>
+            <strong>Formule :</strong>
+        </p>
+
+        <p>
+            \[
+            z = \frac{x-\mu}{\sigma}
+            \]
+        </p>
+
+        <p>
+            Ici, \(x\) représente la valeur observée, \(\mu\) la moyenne et
+            \(\sigma\) l'écart type.
+        </p>
+
+        <p>
+            <a href="https://www.youtube.com/results?search_query=%C3%A9cart+r%C3%A9duit+score+z+distribution+normale"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Regarder une vidéo sur l'écart réduit sur YouTube
+            </a>
+        </p>
+
+        <!-- Tu peux remplacer le lien ci-dessus par l'URL d'une vidéo précise.
+             Pour intégrer une vidéo, remplace VIDEO_ID par son identifiant YouTube.
+        -->
+        <!--
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                title="Explication de l'écart réduit"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        -->
+    </div>
+
+    <hr>
+
+    <!-- Exercises 2.4 A -->
+    <div class="content-section">
+        <h3>Exercices 2.4A - Partie 1</h3>
+
+        <p>
+            Voici mes réponses aux exercices 2.4A, questions 1 et 2.
+        </p>
+
+        <p>
+            <a href="https://docs.google.com/document/d/1ld4OwgYjROdR4eNRIZLtv9-sFwvyJY1d2GlwX5AOHrc/edit?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Exercices 2.4A - Document 1
+            </a>
+        </p>
+
+        <p>
+            <a href="https://docs.google.com/document/d/1EDCk2dikad8UQUCn3eqtYpEXkyWhi1FYUB61J33gv8A/edit?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Exercices 2.4A - Document 2
+            </a>
+        </p>
+
+        <p>
+            <strong>Captures d'écran ou lien vers Desmos / Google Sheets :</strong>
+        </p>
+
+        <!-- Ajoute ici tes captures d'écran ou un lien vers ton travail numérique. -->
+        <p>
+            <em>Ajouter les captures d'écran ou le lien vers le travail numérique ici.</em>
+        </p>
+    </div>
+
+    <!-- Handwritten work -->
+    <div class="content-section">
+        <h3>Réponses faites à la main</h3>
+
+        <p>
+            Voici mon travail fait à la main, numérisé et partagé en ligne.
+        </p>
+
+        <p>
+            <a href="#"
+               class="resource-link">
+                Ajouter le lien vers mon travail numérisé
+            </a>
+        </p>
+
+        <p>
+            Remplace ce lien par celui de ton document numérisé ou de tes photos
+            de travail. Assure-toi que les personnes qui doivent consulter ton
+            portfolio ont accès au fichier.
+        </p>
+    </div>
+
+    <!-- Exercises 2.4 B -->
+    <div class="content-section">
+        <h3>Exercices 2.4B</h3>
+
+        <p>
+            Voici mes réponses aux exercices 2.4B.
+        </p>
+
+        <p>
+            <a href="https://docs.google.com/document/d/1te4yo02EYJoGfnH5FltjtJxETtLGXYMd1rUw9pL7rRs/edit?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Exercices 2.4B - Mon document
+            </a>
+        </p>
+
+        <!-- Ajoute des captures d'écran ici si nécessaire. -->
+    </div>
+
+    <hr>
+
+    <!-- Useful links -->
+    <div class="content-section">
+        <h3>Liens utiles</h3>
+
+        <ul>
+            <li>
+                <a href="https://www.w3schools.com/html/html_images.asp"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Comment insérer une image en HTML
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_images_w3schools"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Exemple d'image en HTML
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.desmos.com/calculator?lang=fr"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Calculatrice graphique Desmos
+                </a>
+            </li>
+
+            <li>
+                <a href="https://sheets.google.com"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Google Sheets
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sources -->
+    <div class="content-section">
+        <h3>Liste des sources utilisées</h3>
+
+        <ul>
+            <li>
+                Wikimedia Commons.
+                <a href="https://commons.wikimedia.org/wiki/File:Standard_deviation_diagram.svg"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Standard deviation diagram
+                </a>.
+            </li>
+
+            <li>
+                W3Schools.
+                <a href="https://www.w3schools.com/html/html_images.asp"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    HTML Images
+                </a>.
+            </li>
+
+            <li>
+                Notes de cours et exercices du module 2.4.
+            </li>
+
+            <!-- Ajoute ici toute autre source utilisée. -->
+        </ul>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+</footer>
+
+</div>
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Change style of top container on scroll
+window.onscroll = function() {
+    myFunction();
+};
+
+function myFunction() {
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+
+        document.getElementById("myTop").classList.add(
+            "w3-card-4", "w3-animate-opacity"
+        );
+
+        document.getElementById("myIntro").classList.add(
+            "w3-show-inline-block"
+        );
+
+    } else {
+        document.getElementById("myIntro").classList.remove(
+            "w3-show-inline-block"
+        );
+
+        document.getElementById("myTop").classList.remove(
+            "w3-card-4", "w3-animate-opacity"
+        );
+    }
+}
+</script>
+
+</body>
+</html>
+
