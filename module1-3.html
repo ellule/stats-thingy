@@ -1,160 +1,423 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>MDM4U</title>
+<title>MDM4U - 1.3 Les biais</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
-body {font-family: "Roboto", sans-serif}
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.7;
+  background-color: #f7fafa;
+}
+
 .w3-bar-block .w3-bar-item {
   padding: 16px;
   font-weight: bold;
 }
+
+.content-card {
+  background: white;
+  padding: 24px;
+  margin: 24px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.example {
+  background: #e0f2f1;
+  border-left: 5px solid #009688;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.warning {
+  background: #fff3e0;
+  border-left: 5px solid #ff9800;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.definition {
+  color: #00695c;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background-color: #009688;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .content-card {
+    padding: 16px;
+  }
+}
 </style>
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<body>
+
+<!-- Navigation -->
+<div id="nav-placeholder"></div>
 
 <script>
 $(function(){
   $("#nav-placeholder").load("nav.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!-- End navigation -->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+  </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">1.3 - Les Biais</h1>
-</header>
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">1.3 - Les biais</h1>
+    <p class="w3-xlarge">Comment reconnaître ce qui peut influencer les résultats d'un sondage?</p>
+  </header>
 
-<div class="w3-container" style="padding:32px">
+  <main class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
+    <!-- Introduction -->
+    <section class="content-card">
+      <h2><i class="fa fa-search"></i> Qu'est-ce qu'un biais?</h2>
 
-<h1>Les biais</h1>
-<h2>Vidéo de la leçon sur les biais</h2>
-<iframe width="919" height="517" src="https://www.youtube.com/embed/xm38DnpQPzE" title="1_03_Les biais" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<!-- Insérer le code d'intégratio (embed code) de la vidéo YouTube ci-dessous -->
+      <p>Un <span class="definition">biais</span> est un facteur qui peut influencer les résultats d'une étude ou d'un sondage et donner une image inexacte de la population étudiée.</p>
 
-<h2>Résumé des différents types de biais</h2>
-<ul>
-  <li>Le biais d'échantillonnage</li>
-   <ul>
-      <li>La taille de l’échantillon</li>
-        <ul>
-      		<li>Trop peu de répondants pour tirer des conclusions. </li>
-    	</ul>
-      <li>Les caractéristiques de l’échantillon.</li>
-        <ul>
-      		<li>L’échantillon choisi ne représente pas avec exactitude la population à l’étude.</li>
-    	</ul>
-   </ul>
-</ul>
+      <p>Les biais peuvent apparaître lorsqu'on choisit les participants, lorsqu'on pose les questions ou lorsque certaines personnes ne répondent pas au sondage.</p>
 
-<ul>
-  <li>Le biais de surreprésentation</li>
-   <ul>
-      <li>Il y a surreprésentation d’une catégorie de participants ou de participantes parce que la méthode de sondage ne tient pas compte des différentes tailles des groupes. </li>
-</ul>
-</ul>
+      <div class="example">
+        <strong>Exemple :</strong> Une école veut savoir si les élèves aiment les activités sportives. Elle interroge seulement les membres des équipes sportives. Les résultats risquent de montrer plus d'intérêt pour le sport que si elle avait interrogé des élèves de toute l'école.
+      </div>
 
-<ul>
-  <li>Le biais de réponse</li>
-     <ul>
-      <li>Les questions de sondage influencent les réponses des répondants.</li>
-        <ul>
-      		<li>Mettre des caractères en gras pour influencer une réponse.  
-</li>
-            <li>Mauvaise formulation des questions. 
-</li>
-            <li>Questions fermées qui influencent les gens. </li>
-    	</ul>
-   </ul>
-  
-  
-  
-   <ul>
-      <li>Autres  influences sur les réponses des répondants.</li>
-        <ul>
-      		<li>Le ton ou l’attitude de la personne qui fait l’entrevue.</li>
-            <li>Le lieu et le moment de l’enquête.</li>
-            <li>La confidentialité des résultats (est-ce que le répondant sera poussé à mentir ?)</li>
-    	</ul>
-   </ul>
-</ul>
-<ul>
-  <li>Le biais de non-répondants</li>
-   <ul>
-      <li>Se produit lorsqu’il y a un manque de renseignement dûs à de questionnaires non-retournés.</li>
-</ul>
-</ul>
+      <p>Les biais sont importants à reconnaître parce qu'ils peuvent rendre les conclusions moins fiables.</p>
+    </section>
 
+    <!-- Video -->
+    <section class="content-card">
+      <h2><i class="fa fa-play-circle"></i> Vidéo de la leçon sur les biais</h2>
 
+      <p>Regarde cette vidéo pour revoir les principaux types de biais et comprendre comment ils peuvent influencer un sondage.</p>
 
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/xm38DnpQPzE"
+          title="MDM4U - Les biais"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
-<style>
-  .references h2 {
-    font-weight: bold;
-    margin-bottom: 1em;
-  }
-  .reference {
-    margin: 0 0 1em 0;
-    padding-left: 2em;
-    text-indent: -2em; /* crée le retrait en sautoir (hanging indent) */
-    line-height: 1.5;
-  }
-</style>
+    <!-- Sampling bias -->
+    <section class="content-card">
+      <h2>1. Le biais d'échantillonnage</h2>
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+      <p>Le <span class="definition">biais d'échantillonnage</span> se produit lorsque l'échantillon choisi ne représente pas correctement la population étudiée.</p>
 
-</div>
+      <p>Deux éléments peuvent contribuer à ce problème :</p>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
+      <h3>A. La taille de l'échantillon</h3>
+      <p>Un échantillon trop petit peut ne pas représenter suffisamment la diversité de la population. Les résultats peuvent varier beaucoup selon les personnes sélectionnées.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école compte 1 200 élèves, mais seulement 5 élèves répondent à un sondage sur les repas de la cafétéria. Il est difficile de conclure que leurs opinions représentent celles de toute l'école.
+      </div>
+
+      <h3>B. Les caractéristiques de l'échantillon</h3>
+      <p>Un échantillon peut être assez grand, mais quand même mal représenter la population si certains types de personnes sont exclus.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Pour connaître les habitudes de lecture des élèves, un sondage est distribué uniquement au club de lecture. Les participants risquent de lire plus souvent que les autres élèves.
+      </div>
+
+      <div class="warning">
+        <strong>À retenir :</strong> Un échantillon plus grand n'est pas automatiquement représentatif. La façon de sélectionner les participants compte aussi.
+      </div>
+    </section>
+
+    <!-- Overrepresentation bias -->
+    <section class="content-card">
+      <h2>2. Le biais de surreprésentation</h2>
+
+      <p>Le <span class="definition">biais de surreprésentation</span> se produit lorsqu'une catégorie de personnes occupe une place trop importante dans l'échantillon par rapport à sa place dans la population.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Dans une école, 30 % des élèves participent à des activités sportives. Pour un sondage sur les loisirs, les participants sont choisis de façon à ce que 80 % de l'échantillon soit composé d'athlètes. Les athlètes sont donc surreprésentés.
+      </div>
+
+      <p>Les résultats pourraient accorder trop d'importance aux opinions des athlètes et ne pas refléter les habitudes de tous les élèves.</p>
+
+      <p><strong>Comment réduire ce biais?</strong> Vérifier la composition de l'échantillon et utiliser une méthode de sélection qui représente mieux les différents groupes de la population.</p>
+    </section>
+
+    <!-- Response bias -->
+    <section class="content-card">
+      <h2>3. Le biais de réponse</h2>
+
+      <p>Le <span class="definition">biais de réponse</span> se produit lorsque les réponses sont influencées par la façon dont les questions sont posées, par la personne qui mène l'enquête ou par les conditions dans lesquelles le sondage est réalisé.</p>
+
+      <h3>A. La formulation des questions</h3>
+      <p>Une question peut influencer les participants si elle contient des mots qui suggèrent une réponse particulière.</p>
+
+      <div class="example">
+        <strong>Question qui influence :</strong> « Ne trouves-tu pas que notre nouvelle cafétéria est excellente? »<br><br>
+        <strong>Question plus neutre :</strong> « Comment évalues-tu la nouvelle cafétéria? »
+      </div>
+
+      <h3>B. Les mots en gras ou les formulations orientées</h3>
+      <p>Mettre certains mots en évidence ou présenter seulement les avantages d'une option peut influencer la façon dont les participants répondent.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> « Es-tu d'accord que cette excellente nouvelle règle devrait être conservée? » Cette question présente déjà la règle de façon positive.
+      </div>
+
+      <h3>C. Les questions fermées</h3>
+      <p>Les questions fermées proposent un nombre limité de réponses. Elles sont utiles dans plusieurs sondages, mais les choix proposés peuvent influencer ou limiter les réponses si certaines options importantes sont absentes.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Un sondage demande seulement « Aimes-tu le sport? Oui ou non? ». Il ne permet pas aux participants d'exprimer une opinion nuancée ou d'expliquer leur réponse.
+      </div>
+
+      <h3>D. Le ton et l'attitude de la personne qui mène l'entrevue</h3>
+      <p>Les participants peuvent modifier leurs réponses selon la réaction, le ton ou l'attitude de la personne qui pose les questions.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Si la personne qui mène une entrevue semble désapprouver une réponse, le participant pourrait hésiter à donner son véritable avis.
+      </div>
+
+      <h3>E. Le lieu et le moment du sondage</h3>
+      <p>Le contexte peut influencer les personnes qui répondent et les réponses qu'elles donnent.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Demander aux élèves s'ils aiment la cafétéria pendant une longue file d'attente peut produire des réponses différentes de celles obtenues à un autre moment.
+      </div>
+
+      <h3>F. La confidentialité des réponses</h3>
+      <p>Si les participants pensent que leurs réponses seront vues par d'autres personnes, ils peuvent ne pas répondre honnêtement, surtout si le sujet est personnel ou délicat.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Un élève peut hésiter à critiquer une activité scolaire si son nom apparaît à côté de sa réponse.
+      </div>
+
+      <p><strong>Comment réduire le biais de réponse?</strong> Utiliser des questions neutres, offrir des choix de réponses équilibrés, garder un ton impartial et protéger la confidentialité des participants.</p>
+    </section>
+
+    <!-- Nonresponse bias -->
+    <section class="content-card">
+      <h2>4. Le biais de non-réponse</h2>
+
+      <p>Le <span class="definition">biais de non-réponse</span> se produit lorsque les personnes qui ne répondent pas à un sondage ont des caractéristiques ou des opinions différentes de celles qui y répondent.</p>
+
+      <p>Le problème n'est pas simplement qu'il manque des réponses. C'est que les personnes absentes peuvent avoir des opinions différentes de celles des répondants.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école envoie un sondage sur le transport scolaire. Les élèves qui prennent l'autobus sont très nombreux à répondre, mais peu d'élèves qui marchent ou se font conduire répondent. Les résultats risquent de refléter davantage l'opinion des utilisateurs de l'autobus.
+      </div>
+
+      <p><strong>Comment réduire ce biais?</strong> Envoyer des rappels, rendre le sondage facile à remplir, donner suffisamment de temps pour répondre et proposer des moyens de participation accessibles.</p>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="content-card">
+      <h2><i class="fa fa-table"></i> Comparaison des types de biais</h2>
+
+      <div style="overflow-x:auto;">
+        <table class="w3-table-all">
+          <thead>
+            <tr>
+              <th>Type de biais</th>
+              <th>Cause principale</th>
+              <th>Exemple rapide</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Biais d'échantillonnage</strong></td>
+              <td>L'échantillon ne représente pas correctement la population.</td>
+              <td>Interroger uniquement les membres du club de lecture sur les habitudes de lecture de toute l'école.</td>
+            </tr>
+            <tr>
+              <td><strong>Biais de surreprésentation</strong></td>
+              <td>Un groupe est trop présent dans l'échantillon.</td>
+              <td>Inclure beaucoup trop d'athlètes dans un sondage sur les loisirs de tous les élèves.</td>
+            </tr>
+            <tr>
+              <td><strong>Biais de réponse</strong></td>
+              <td>La formulation ou le contexte influence les réponses.</td>
+              <td>Demander : « Ne trouves-tu pas cette règle excellente? »</td>
+            </tr>
+            <tr>
+              <td><strong>Biais de non-réponse</strong></td>
+              <td>Les personnes qui ne répondent pas sont différentes de celles qui répondent.</td>
+              <td>Seuls les élèves qui prennent l'autobus répondent au sondage sur le transport scolaire.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Identifying bias -->
+    <section class="content-card">
+      <h2><i class="fa fa-lightbulb-o"></i> Comment reconnaître un biais?</h2>
+
+      <p>Quand tu analyses un sondage, pose-toi ces questions :</p>
+
+      <ul>
+        <li><strong>Qui participe?</strong> Est-ce que les personnes sélectionnées représentent la population?</li>
+        <li><strong>Combien de personnes répondent?</strong> L'échantillon est-il suffisamment grand pour l'étude?</li>
+        <li><strong>Un groupe est-il trop représenté?</strong> Certains participants sont-ils beaucoup plus nombreux que dans la population?</li>
+        <li><strong>Comment les questions sont-elles formulées?</strong> Sont-elles neutres et faciles à comprendre?</li>
+        <li><strong>Qui ne répond pas?</strong> Les non-répondants pourraient-ils avoir des opinions différentes?</li>
+        <li><strong>Les participants se sentent-ils libres de répondre honnêtement?</strong> Leur confidentialité est-elle protégée?</li>
+      </ul>
+    </section>
+
+    <!-- Practice -->
+    <section class="content-card">
+      <h2><i class="fa fa-pencil"></i> Petit exercice de révision</h2>
+
+      <p>Lis chaque situation et essaie d'identifier le type de biais avant de révéler la réponse.</p>
+
+      <details>
+        <summary><strong>Situation 1</strong></summary>
+        <p>Une école demande l'opinion des élèves sur la musique, mais elle interroge uniquement les membres de la chorale.</p>
+        <p><strong>Réponse :</strong> Biais d'échantillonnage, car l'échantillon ne représente pas tous les élèves. Les membres de la chorale peuvent aussi être surreprésentés.</p>
+      </details>
+
+      <hr>
+
+      <details>
+        <summary><strong>Situation 2</strong></summary>
+        <p>Une question demande : « Es-tu d'accord que notre excellente bibliothèque devrait rester ouverte plus longtemps? »</p>
+        <p><strong>Réponse :</strong> Biais de réponse, car la formulation positive peut influencer les participants.</p>
+      </details>
+
+      <hr>
+
+      <details>
+        <summary><strong>Situation 3</strong></summary>
+        <p>Un sondage est envoyé à toute l'école, mais seules les personnes très intéressées par le sujet répondent.</p>
+        <p><strong>Réponse :</strong> Biais de non-réponse si les personnes qui ne répondent pas ont des opinions différentes de celles qui répondent.</p>
+      </details>
+
+      <hr>
+
+      <details>
+        <summary><strong>Situation 4</strong></summary>
+        <p>Dans un sondage sur les loisirs, 75 % des personnes interrogées sont des athlètes, alors que les athlètes représentent seulement 25 % de l'école.</p>
+        <p><strong>Réponse :</strong> Biais de surreprésentation, car les athlètes occupent une place trop importante dans l'échantillon.</p>
+      </details>
+    </section>
+
+    <!-- Summary -->
+    <section class="content-card">
+      <h2><i class="fa fa-check-circle"></i> Résumé</h2>
+
+      <ul>
+        <li><strong>Biais d'échantillonnage :</strong> l'échantillon ne représente pas bien la population.</li>
+        <li><strong>Biais de surreprésentation :</strong> un groupe est trop présent dans l'échantillon.</li>
+        <li><strong>Biais de réponse :</strong> la question, l'entrevue ou le contexte influence les réponses.</li>
+        <li><strong>Biais de non-réponse :</strong> les personnes qui ne répondent pas peuvent être différentes de celles qui répondent.</li>
+      </ul>
+
+      <p>Pour obtenir des résultats plus fiables, il faut choisir un échantillon adapté, poser des questions neutres et donner à tous les participants une chance raisonnable de répondre.</p>
+    </section>
+
+  </main>
+
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
 </div>
 
 <script>
-// Open and close the sidebar on medium and small screens
+// Ouvrir et fermer la barre latérale
 function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
+  var sidebar = document.getElementById("mySidebar");
+  var overlay = document.getElementById("myOverlay");
+
+  if (sidebar) sidebar.style.display = "block";
+  if (overlay) overlay.style.display = "block";
 }
 
 function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
+  var sidebar = document.getElementById("mySidebar");
+  var overlay = document.getElementById("myOverlay");
+
+  if (sidebar) sidebar.style.display = "none";
+  if (overlay) overlay.style.display = "none";
 }
 
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
+// Modifier la barre supérieure lors du défilement
+window.onscroll = function() {
+  var top = document.getElementById("myTop");
+  var intro = document.getElementById("myIntro");
+
+  if (!top || !intro) return;
+
+  if (document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80) {
+    top.classList.add("w3-card-4", "w3-animate-opacity");
+    intro.classList.add("w3-show-inline-block");
   } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+    intro.classList.remove("w3-show-inline-block");
+    top.classList.remove("w3-card-4", "w3-animate-opacity");
   }
-}
-
+};
 </script>
-     
+
 </body>
-</html> 
+</html>
