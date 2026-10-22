@@ -1,1 +1,534 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>MDM4U</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Import MathJax -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+<style>
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.w3-bar-block .w3-bar-item {
+    padding: 16px;
+    font-weight: bold;
+}
+
+.content-section {
+    margin-bottom: 32px;
+}
+
+.video-container {
+    max-width: 650px;
+    margin: 20px 0;
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
+.graph-container {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.resource-link {
+    color: #008080;
+    font-weight: bold;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+<div id="nav-placeholder"></div>
+
+<script>
+$(function(){
+    $("#nav-placeholder").load("nav.html");
+});
+</script>
+<!-- End of Navigation bar -->
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+<!-- Top bar -->
+<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+        <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+           onclick="w3_open()"></i>
+        <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+</div>
+
+<!-- Page header -->
+<header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">
+        2.5 - Distribution de données décrite par deux variables
+    </h1>
+</header>
+
+<!-- Main content -->
+<div class="w3-container" style="padding:32px">
+
+    <!-- Introduction -->
+    <div class="content-section">
+        <h3>Introduction</h3>
+
+        <p>
+            Une distribution de données décrite par deux variables permet
+            d'étudier la relation entre deux variables. On représente
+            généralement les données avec un nuage de points.
+        </p>
+
+        <p>
+            Le nuage de points nous aide à voir si les deux variables sont
+            liées, et si leur relation est positive, négative ou inexistante.
+        </p>
+    </div>
+
+    <!-- Scatter plots -->
+    <div class="content-section">
+        <h3>Les nuages de points</h3>
+
+        <p>
+            Un nuage de points est un graphique qui représente chaque paire
+            de valeurs par un point. La variable indépendante se trouve
+            habituellement sur l'axe horizontal (x), et la variable dépendante
+            sur l'axe vertical (y).
+        </p>
+
+        <ul>
+            <li>
+                <strong>Corrélation positive :</strong>
+                lorsque x augmente, y a tendance à augmenter.
+            </li>
+            <li>
+                <strong>Corrélation négative :</strong>
+                lorsque x augmente, y a tendance à diminuer.
+            </li>
+            <li>
+                <strong>Aucune corrélation linéaire :</strong>
+                les points ne présentent pas de tendance linéaire claire.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Best fit line -->
+    <div class="content-section">
+        <h3>La droite la mieux ajustée</h3>
+
+        <p>
+            La droite la mieux ajustée représente la tendance générale d'un
+            nuage de points. Elle passe au milieu des points autant que
+            possible et permet d'estimer la relation entre les deux variables.
+        </p>
+
+        <p>
+            L'équation d'une droite s'écrit généralement :
+        </p>
+
+        <p>
+            \[
+            y = mx + b
+            \]
+        </p>
+
+        <p>
+            Dans cette équation, \(m\) représente la pente et \(b\) représente
+            l'ordonnée à l'origine.
+        </p>
+    </div>
+
+    <!-- Google Sheets video -->
+    <div class="content-section">
+        <h3>Vidéo : tracer la droite la mieux ajustée avec Google Sheets</h3>
+
+        <p>
+            Cette vidéo explique comment créer un nuage de points, ajouter
+            une droite de tendance et afficher son équation dans Google Sheets.
+        </p>
+
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/tjGkp_PvKnk"
+                title="La droite la mieux ajustée et le coefficient de corrélation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            <a href="https://support.google.com/docs/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Aide Google Sheets
+            </a>
+        </p>
+
+        <p>
+            <em>
+                Remarque : cette vidéo porte sur la droite la mieux ajustée
+                et les coefficients de corrélation. Si tu dois montrer
+                spécifiquement les étapes dans Google Sheets, utilise aussi
+                la recherche vidéo ci-dessous.
+            </em>
+        </p>
+
+        <p>
+            <a href="https://www.youtube.com/results?search_query=Google+Sheets+nuage+de+points+droite+de+tendance+%C3%A9quation+fran%C3%A7ais"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Trouver une vidéo sur Google Sheets en français
+            </a>
+        </p>
+    </div>
+
+    <!-- Correlation coefficient -->
+    <div class="content-section">
+        <h3>Le coefficient de corrélation (r)</h3>
+
+        <p>
+            Le coefficient de corrélation \(r\) mesure la force et la direction
+            d'une relation linéaire entre deux variables. Sa valeur se situe
+            entre -1 et 1.
+        </p>
+
+        <ul>
+            <li>
+                <strong>r près de 1 :</strong>
+                forte corrélation positive.
+            </li>
+            <li>
+                <strong>r près de -1 :</strong>
+                forte corrélation négative.
+            </li>
+            <li>
+                <strong>r près de 0 :</strong>
+                faible ou aucune corrélation linéaire.
+            </li>
+        </ul>
+
+        <p>
+            Plus la valeur absolue de \(r\) est proche de 1, plus la relation
+            linéaire est forte. Le signe indique la direction de la relation.
+        </p>
+    </div>
+
+    <!-- Exercise 2.5 -->
+    <div class="content-section">
+        <h3>Exercices 2.5</h3>
+
+        <p>
+            Pour cet exercice, il faut créer les trois nuages de points,
+            ajouter une droite la mieux ajustée et déterminer le coefficient
+            de corrélation de chaque ensemble de données.
+        </p>
+
+        <p>
+            <a href="https://docs.google.com/spreadsheets/d/1UMfWcW8Ykwa66IbLiJv6nuYPI_zKPIJVaZP0GfqGP_Y/edit?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Ouvrir les exercices 2.5
+            </a>
+        </p>
+
+        <p>
+            Utilise Google Sheets et Desmos pour réaliser les trois graphiques,
+            en utilisant les deux outils au cours de l'exercice.
+        </p>
+    </div>
+
+    <!-- Graph 1 -->
+    <div class="graph-container">
+        <h3>Graphique 1 - Premier ensemble de données</h3>
+
+        <p>
+            <strong>Graphique :</strong>
+            Insère ici une capture d'écran de ton nuage de points et de sa
+            droite la mieux ajustée, ou ajoute un lien vers ton graphique
+            Desmos ou Google Sheets.
+        </p>
+
+        <p>
+            <strong>Équation de la droite :</strong>
+            À compléter avec l'équation obtenue.
+        </p>
+
+        <p>
+            <strong>Coefficient de corrélation (r) :</strong>
+            À compléter avec la valeur calculée.
+        </p>
+
+        <p>
+            <strong>Force et direction :</strong>
+            Explique si la corrélation est faible, modérée ou forte, et si
+            elle est positive ou négative, en te basant sur la valeur de r.
+        </p>
+
+        <p>
+            <a href="https://www.desmos.com/calculator?lang=fr"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Ouvrir Desmos
+            </a>
+        </p>
+    </div>
+
+    <!-- Graph 2 -->
+    <div class="graph-container">
+        <h3>Graphique 2 - Deuxième ensemble de données</h3>
+
+        <p>
+            <strong>Graphique :</strong>
+            Insère ici une capture d'écran ou un lien vers ton graphique.
+        </p>
+
+        <p>
+            <strong>Équation de la droite :</strong>
+            À compléter avec l'équation obtenue.
+        </p>
+
+        <p>
+            <strong>Coefficient de corrélation (r) :</strong>
+            À compléter avec la valeur calculée.
+        </p>
+
+        <p>
+            <strong>Force et direction :</strong>
+            Décris la force et la direction de la corrélation en utilisant r.
+        </p>
+
+        <p>
+            <a href="https://www.desmos.com/calculator?lang=fr"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Ouvrir Desmos
+            </a>
+        </p>
+    </div>
+
+    <!-- Graph 3 -->
+    <div class="graph-container">
+        <h3>Graphique 3 - Troisième ensemble de données</h3>
+
+        <p>
+            <strong>Graphique :</strong>
+            Insère ici une capture d'écran ou un lien vers ton graphique.
+        </p>
+
+        <p>
+            <strong>Équation de la droite :</strong>
+            À compléter avec l'équation obtenue.
+        </p>
+
+        <p>
+            <strong>Coefficient de corrélation (r) :</strong>
+            À compléter avec la valeur calculée.
+        </p>
+
+        <p>
+            <strong>Force et direction :</strong>
+            Décris la force et la direction de la corrélation en utilisant r.
+        </p>
+
+        <p>
+            <a href="https://sheets.google.com"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Ouvrir Google Sheets
+            </a>
+        </p>
+    </div>
+
+    <!-- Lesson slides -->
+    <div class="content-section">
+        <h3>Leçon : diapositives de l'enseignante</h3>
+
+        <p>
+            <a href="https://docs.google.com/presentation/d/1AyOuLu2BoIIqkqQJb3lPh5sJq4HnvsRaxpYafFksiMU/edit?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="resource-link">
+                Ouvrir les diapositives du cours 2.5
+            </a>
+        </p>
+    </div>
+
+    <!-- Reminder video -->
+    <div class="content-section">
+        <h3>Vidéo rappel : intégrer des graphiques</h3>
+
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/PpFxZMAhIk4"
+                title="Comment intégrer des graphiques dans le portfolio"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Scatter plot lesson video -->
+    <div class="content-section">
+        <h3>Vidéo 1 : les nuages de points</h3>
+
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/PAQsTLz3HNE"
+                title="Distribution de données décrite par deux variables : les nuages de points"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Correlation video -->
+    <div class="content-section">
+        <h3>Vidéo 2 : droite la mieux ajustée, r et r²</h3>
+
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/tjGkp_PvKnk"
+                title="La droite la mieux ajustée, le coefficient de corrélation et le coefficient de détermination"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            Le coefficient de détermination \(r^2\) représente la proportion
+            de la variation de y qui est expliquée par la relation linéaire
+            avec x, dans le contexte du modèle.
+        </p>
+    </div>
+
+    <!-- Sources -->
+    <div class="content-section">
+        <h3>Liste des sources utilisées</h3>
+
+        <ul>
+            <li>
+                Enseignante, diapositives du cours 2.5 :
+                <a href="https://docs.google.com/presentation/d/1AyOuLu2BoIIqkqQJb3lPh5sJq4HnvsRaxpYafFksiMU/edit?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Distribution de données décrite par deux variables
+                </a>.
+            </li>
+
+            <li>
+                Exercices 2.5 :
+                <a href="https://docs.google.com/spreadsheets/d/1UMfWcW8Ykwa66IbLiJv6nuYPI_zKPIJVaZP0GfqGP_Y/edit?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Feuille d'exercices
+                </a>.
+            </li>
+
+            <li>
+                Vidéo :
+                <a href="https://youtu.be/PAQsTLz3HNE"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Les nuages de points
+                </a>.
+            </li>
+
+            <li>
+                Vidéo :
+                <a href="https://youtu.be/tjGkp_PvKnk"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Droite la mieux ajustée et coefficients de corrélation
+                </a>.
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+</footer>
+
+</div>
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Change style of top container on scroll
+window.onscroll = function() {
+    myFunction();
+};
+
+function myFunction() {
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+
+        document.getElementById("myTop").classList.add(
+            "w3-card-4", "w3-animate-opacity"
+        );
+
+        document.getElementById("myIntro").classList.add(
+            "w3-show-inline-block"
+        );
+
+    } else {
+        document.getElementById("myIntro").classList.remove(
+            "w3-show-inline-block"
+        );
+
+        document.getElementById("myTop").classList.remove(
+            "w3-card-4", "w3-animate-opacity"
+        );
+    }
+}
+</script>
+
+</body>
+</html>
+
