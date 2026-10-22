@@ -1,89 +1,837 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>MDM4U</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-  padding: 16px;
-  font-weight: bold;
-}
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MDM4U - Distribution des données</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      line-height: 1.7;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    .section-card {
+      background: #f5fafa;
+      border-left: 5px solid #009688;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .distribution-card {
+      background: white;
+      border: 1px solid #d5e5e3;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .graph-frame {
+      width: 100%;
+      height: 400px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: white;
+    }
+
+    .app-box {
+      background: white;
+      border: 1px solid #b7d7d2;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 18px;
+    }
+
+    .app-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .stat-box {
+      padding: 12px;
+      background: #e0f2f1;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+    #histogram {
+      display: block;
+      width: 100%;
+      height: 350px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: white;
+    }
+
+    .video-link {
+      display: inline-block;
+      margin: 6px 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Barre de navigation -->
+<div id="nav-placeholder"></div>
 
 <script>
-$(function(){
-  $("#nav-placeholder").load("nav.html");
-});
+  $(function() {
+    $("#nav-placeholder").load("nav.html");
+  });
 </script>
-<!--end of Navigation bar-->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
+  <!-- Barre supérieure -->
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+  </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">2.1 - Distribution des données</h1>
-</header>
+  <!-- En-tête -->
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">2.1 - Distribution des données</h1>
+    <p>Reconnaître, représenter et comparer différentes formes de distributions</p>
+  </header>
 
-<div class="w3-container" style="padding:32px">
+  <main class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-<h2>Distribuion en cloche</h2><iframe src="https://www.desmos.com/calculator/qboj2aq08x?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-<h2>Distribuion uniform</h2><iframe src="https://www.desmos.com/calculator/kktijkrx9j?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-<h2>Distribuion asymétrique vers la gauche</h2><iframe src="https://www.desmos.com/calculator/iiqjwzc8it?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-<h2>Distribuion en U</h2><iframe src="https://www.desmos.com/calculator/a86z8kp4hm?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+    <!-- Introduction -->
+    <section class="section-card">
+      <h2><i class="fa fa-bar-chart"></i> Introduction</h2>
 
-</div>
+      <p>
+        Une distribution représente la façon dont les valeurs d'un ensemble de
+        données sont réparties. Un histogramme permet de visualiser le nombre
+        de valeurs qui se trouvent dans différents intervalles.
+      </p>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
+      <p>
+        Observer la forme d'une distribution nous aide à repérer les tendances,
+        les regroupements, les valeurs fréquentes et les données inhabituelles.
+        Une distribution peut prendre plusieurs formes, notamment une forme en
+        cloche, uniforme, asymétrique ou en U.
+      </p>
+
+      <p>
+        Les graphiques interactifs ci-dessous permettent d'explorer ces différentes
+        formes. Tu peux les utiliser pour comparer les distributions et observer
+        comment les données sont réparties.
+      </p>
+    </section>
+
+    <!-- Distribution en cloche -->
+    <section class="distribution-card">
+      <h2>1. Distribution en cloche</h2>
+
+      <p>
+        Une distribution en cloche possède généralement un sommet au centre.
+        La plupart des valeurs se trouvent près du milieu, tandis que les valeurs
+        très faibles et très élevées sont moins fréquentes. Une distribution
+        normale est un exemple de distribution en cloche et elle est symétrique.
+      </p>
+
+      <p>
+        <strong>Exemple :</strong> certaines mesures biologiques, comme la taille
+        dans un groupe suffisamment grand, peuvent parfois suivre approximativement
+        une distribution en cloche.
+      </p>
+
+      <iframe class="graph-frame"
+        src="https://www.desmos.com/calculator/qboj2aq08x?embed"
+        title="Graphique interactif d'une distribution en cloche"
+        loading="lazy">
+      </iframe>
+
+      <p>
+        <a href="https://www.desmos.com/calculator/qboj2aq08x"
+           target="_blank" rel="noopener noreferrer">
+          Ouvrir ce graphique dans Desmos
+        </a>
+      </p>
+    </section>
+
+    <!-- Distribution uniforme -->
+    <section class="distribution-card">
+      <h2>2. Distribution uniforme</h2>
+
+      <p>
+        Dans une distribution uniforme, les intervalles ont des fréquences
+        approximativement égales. L'histogramme a donc généralement une apparence
+        relativement plate. Dans une distribution uniforme théorique continue,
+        les valeurs ont la même densité de probabilité dans l'intervalle étudié.
+      </p>
+
+      <p>
+        <strong>Exemple :</strong> des nombres générés au hasard entre 0 et 100
+        peuvent former une distribution approximativement uniforme si le processus
+        donne la même chance à chaque intervalle de même largeur.
+      </p>
+
+      <iframe class="graph-frame"
+        src="https://www.desmos.com/calculator/kktijkrx9j?embed"
+        title="Graphique interactif d'une distribution uniforme"
+        loading="lazy">
+      </iframe>
+
+      <p>
+        <a href="https://www.desmos.com/calculator/kktijkrx9j"
+           target="_blank" rel="noopener noreferrer">
+          Ouvrir ce graphique dans Desmos
+        </a>
+      </p>
+    </section>
+
+    <!-- Distribution asymétrique vers la gauche -->
+    <section class="distribution-card">
+      <h2>3. Distribution asymétrique vers la gauche</h2>
+
+      <p>
+        Une distribution asymétrique vers la gauche possède une longue queue
+        du côté des petites valeurs. La majorité des données se trouve plutôt
+        vers les valeurs élevées. On appelle aussi cette forme une distribution
+        à asymétrie négative.
+      </p>
+
+      <p>
+        Dans une distribution unimodale de ce type, la moyenne est souvent plus
+        petite que la médiane, car les petites valeurs tirent la moyenne vers la gauche.
+        Cela reste une tendance générale, et non une règle absolue pour toutes
+        les distributions.
+      </p>
+
+      <p>
+        <strong>Exemple :</strong> un examen assez facile peut donner beaucoup
+        de notes élevées et seulement quelques notes très faibles.
+      </p>
+
+      <iframe class="graph-frame"
+        src="https://www.desmos.com/calculator/iiqjwzc8it?embed"
+        title="Graphique interactif d'une distribution asymétrique vers la gauche"
+        loading="lazy">
+      </iframe>
+
+      <p>
+        <a href="https://www.desmos.com/calculator/iiqjwzc8it"
+           target="_blank" rel="noopener noreferrer">
+          Ouvrir ce graphique dans Desmos
+        </a>
+      </p>
+    </section>
+
+    <!-- Distribution en U -->
+    <section class="distribution-card">
+      <h2>4. Distribution en U</h2>
+
+      <p>
+        Une distribution en U possède généralement davantage de valeurs près
+        des deux extrémités et moins de valeurs au centre. Son histogramme peut
+        donc présenter deux zones élevées séparées par une zone plus basse.
+      </p>
+
+      <p>
+        <strong>Exemple :</strong> si un sondage comporte beaucoup de réponses
+        aux deux extrêmes d'une échelle et peu de réponses intermédiaires,
+        la distribution pourrait ressembler à un U.
+      </p>
+
+      <p>
+        Attention : une distribution en U n'est pas la même chose qu'une
+        distribution en cloche. La forme en cloche possède un sommet central,
+        tandis que la forme en U présente plutôt un creux central.
+      </p>
+
+      <iframe class="graph-frame"
+        src="https://www.desmos.com/calculator/a86z8kp4hm?embed"
+        title="Graphique interactif d'une distribution en U"
+        loading="lazy">
+      </iframe>
+
+      <p>
+        <a href="https://www.desmos.com/calculator/a86z8kp4hm"
+           target="_blank" rel="noopener noreferrer">
+          Ouvrir ce graphique dans Desmos
+        </a>
+      </p>
+    </section>
+
+    <!-- Comparaison -->
+    <section class="section-card">
+      <h2>5. Comparer les formes</h2>
+
+      <div class="w3-responsive">
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-theme">
+              <th>Forme</th>
+              <th>Caractéristique principale</th>
+              <th>Ce qu'on observe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>En cloche</strong></td>
+              <td>Un sommet central</td>
+              <td>La majorité des valeurs se trouve près du centre.</td>
+            </tr>
+            <tr>
+              <td><strong>Uniforme</strong></td>
+              <td>Fréquences relativement égales</td>
+              <td>Les barres ont des hauteurs semblables.</td>
+            </tr>
+            <tr>
+              <td><strong>Asymétrique vers la gauche</strong></td>
+              <td>Une queue vers les petites valeurs</td>
+              <td>La majorité des valeurs se trouve plutôt à droite.</td>
+            </tr>
+            <tr>
+              <td><strong>En U</strong></td>
+              <td>Un creux central</td>
+              <td>Les valeurs aux extrémités sont plus fréquentes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Lorsque tu analyses un histogramme, observe où se trouvent les valeurs
+        les plus fréquentes, si la distribution est symétrique et si certaines
+        valeurs semblent inhabituelles.
+      </p>
+    </section>
+
+    <!-- Extension interactive -->
+    <section id="extension" class="section-card">
+      <h2><i class="fa fa-sliders"></i> 6. Extension : mon histogramme interactif</h2>
+
+      <p>
+        Cette application permet de créer un histogramme à partir d'une liste
+        de données. Tu peux modifier les données et changer la largeur des
+        intervalles pour voir comment la forme du graphique évolue.
+      </p>
+
+      <p>
+        Elle calcule aussi automatiquement la moyenne, la médiane, la valeur
+        minimale, la valeur maximale et l'écart-type.
+      </p>
+
+      <div class="app-box">
+        <h3>Explore tes propres données</h3>
+
+        <label for="dataInput">
+          <strong>Entre une liste de nombres :</strong>
+        </label>
+
+        <p>
+          Sépare les valeurs avec des virgules, des espaces ou des retours à la ligne.
+        </p>
+
+        <textarea id="dataInput" class="app-input" rows="4">12, 15, 16, 18, 19, 20, 21, 21, 22, 23, 24, 25, 25, 26, 28, 30, 32, 35, 38, 40</textarea>
+
+        <p>
+          <label for="binWidth">
+            <strong>Largeur des intervalles :</strong>
+            <span id="binWidthLabel">5</span>
+          </label>
+        </p>
+
+        <input id="binWidth" type="range" min="1" max="20" value="5" step="1" style="width:100%">
+
+        <p>
+          <button type="button" class="w3-button w3-theme" onclick="updateHistogram()">
+            <i class="fa fa-refresh"></i> Actualiser l'histogramme
+          </button>
+          <button type="button" class="w3-button w3-light-grey" onclick="loadExample()">
+            Charger un exemple
+          </button>
+        </p>
+
+        <p id="errorMessage" role="status" style="color:#b00020;"></p>
+
+        <h3>Histogramme</h3>
+        <canvas id="histogram" aria-label="Histogramme interactif des données"></canvas>
+
+        <p>
+          Chaque barre représente le nombre de données qui se trouvent dans
+          un intervalle. Essaie différentes largeurs pour voir comment le
+          niveau de détail change.
+        </p>
+
+        <h3>Statistiques descriptives</h3>
+
+        <div class="w3-row-padding">
+          <div class="w3-col s6 m4 w3-margin-bottom">
+            <div class="stat-box">
+              <div>Moyenne</div>
+              <div id="mean" class="stat-number">-</div>
+            </div>
+          </div>
+
+          <div class="w3-col s6 m4 w3-margin-bottom">
+            <div class="stat-box">
+              <div>Médiane</div>
+              <div id="median" class="stat-number">-</div>
+            </div>
+          </div>
+
+          <div class="w3-col s6 m4 w3-margin-bottom">
+            <div class="stat-box">
+              <div>Minimum</div>
+              <div id="minimum" class="stat-number">-</div>
+            </div>
+          </div>
+
+          <div class="w3-col s6 m4 w3-margin-bottom">
+            <div class="stat-box">
+              <div>Maximum</div>
+              <div id="maximum" class="stat-number">-</div>
+            </div>
+          </div>
+
+          <div class="w3-col s6 m4 w3-margin-bottom">
+            <div class="stat-box">
+              <div>Écart-type</div>
+              <div id="stdDev" class="stat-number">-</div>
+            </div>
+          </div>
+
+          <div class="w3-col s6 m4 w3-margin-bottom">
+            <div class="stat-box">
+              <div>Nombre de valeurs</div>
+              <div id="count" class="stat-number">-</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Interprétation</h3>
+        <p id="interpretation">
+          Entre tes données pour obtenir une interprétation.
+        </p>
+      </div>
+
+      <h3>Comment utiliser l'application</h3>
+      <ol>
+        <li>Entre une liste de nombres dans la boîte de texte.</li>
+        <li>Déplace le curseur pour modifier la largeur des intervalles.</li>
+        <li>Observe la hauteur des barres et la forme de l'histogramme.</li>
+        <li>Compare la moyenne et la médiane, puis examine les autres statistiques.</li>
+      </ol>
+
+      <p>
+        <strong>Mon application permet de</strong> créer un histogramme interactif
+        à partir de données personnelles, de modifier la largeur des intervalles
+        et d'observer automatiquement plusieurs statistiques descriptives.
+      </p>
+    </section>
+
+    <!-- Ressources -->
+    <section class="section-card">
+      <h2><i class="fa fa-book"></i> 7. Ressources utiles</h2>
+
+      <ul>
+        <li>
+          <a href="https://www.desmos.com/calculator"
+             target="_blank" rel="noopener noreferrer">
+            Desmos - Calculatrice graphique
+          </a>
+          : pour créer et explorer des graphiques interactifs.
+        </li>
+        <li>
+          <a href="https://www.khanacademy.org/math/statistics-probability"
+             target="_blank" rel="noopener noreferrer">
+            Khan Academy - Statistiques et probabilités
+          </a>
+          : pour revoir les concepts de statistiques.
+        </li>
+        <li>
+          <a href="https://www.w3schools.com/html/"
+             target="_blank" rel="noopener noreferrer">
+            W3Schools - HTML
+          </a>
+          : pour apprendre les bases de la création de pages Web.
+        </li>
+        <li>
+          <a href="https://www.w3schools.com/js/"
+             target="_blank" rel="noopener noreferrer">
+            W3Schools - JavaScript
+          </a>
+          : pour découvrir le code qui rend l'application interactive.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Bibliographie -->
+    <section class="section-card">
+      <h2><i class="fa fa-list"></i> 8. Bibliographie</h2>
+
+      <p>
+        Les ressources suivantes ont été utilisées pour présenter les graphiques,
+        les distributions et les outils de création de cette page.
+      </p>
+
+      <ul>
+        <li>
+          Desmos. (s. d.). <em>Calculatrice graphique</em>.
+          Consulté le 22 octobre 2026.
+          <a href="https://www.desmos.com/calculator"
+             target="_blank" rel="noopener noreferrer">
+            https://www.desmos.com/calculator
+          </a>
+        </li>
+
+        <li>
+          Khan Academy. (s. d.). <em>Statistiques et probabilités</em>.
+          <a href="https://www.khanacademy.org/math/statistics-probability"
+             target="_blank" rel="noopener noreferrer">
+            https://www.khanacademy.org/math/statistics-probability
+          </a>
+        </li>
+
+        <li>
+          W3Schools. (s. d.). <em>HTML Tutorial</em>.
+          <a href="https://www.w3schools.com/html/"
+             target="_blank" rel="noopener noreferrer">
+            https://www.w3schools.com/html/
+          </a>
+        </li>
+
+        <li>
+          W3Schools. (s. d.). <em>JavaScript Tutorial</em>.
+          <a href="https://www.w3schools.com/js/"
+             target="_blank" rel="noopener noreferrer">
+            https://www.w3schools.com/js/
+          </a>
+        </li>
+      </ul>
+
+      <p>
+        Les quatre graphiques interactifs de la section 1 à 4 sont intégrés
+        depuis Desmos. Le code de l'histogramme interactif a été créé pour cette page.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
 </div>
 
 <script>
-// Open and close the sidebar on medium and small screens
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
-  } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+  // Menu de navigation
+  function w3_open() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
+    if (sidebar) sidebar.style.display = "block";
+    if (overlay) overlay.style.display = "block";
   }
-}
 
+  function w3_close() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
+    if (sidebar) sidebar.style.display = "none";
+    if (overlay) overlay.style.display = "none";
+  }
+
+  // Barre supérieure lors du défilement
+  window.onscroll = function() {
+    const top = document.getElementById("myTop");
+    const intro = document.getElementById("myIntro");
+
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+      top.classList.add("w3-card-4", "w3-animate-opacity");
+      intro.classList.add("w3-show-inline-block");
+    } else {
+      intro.classList.remove("w3-show-inline-block");
+      top.classList.remove("w3-card-4", "w3-animate-opacity");
+    }
+  };
+
+  // Histogramme interactif
+  const dataInput = document.getElementById("dataInput");
+  const binWidthInput = document.getElementById("binWidth");
+  const binWidthLabel = document.getElementById("binWidthLabel");
+  const canvas = document.getElementById("histogram");
+  const ctx = canvas.getContext("2d");
+
+  function parseData() {
+    const raw = dataInput.value.trim();
+
+    if (!raw) return [];
+
+    // Accepte les virgules, les espaces et les retours à la ligne.
+    const tokens = raw.split(/[\s,;]+/).filter(Boolean);
+    const values = tokens.map(Number);
+
+    if (values.some(value => !Number.isFinite(value))) {
+      throw new Error("Entre seulement des nombres, séparés par des virgules ou des espaces.");
+    }
+
+    if (values.length > 5000) {
+      throw new Error("Pour cette application, utilise au maximum 5 000 valeurs.");
+    }
+
+    return values;
+  }
+
+  function formatNumber(value) {
+    return Number(value.toFixed(2)).toLocaleString("fr-CA", {
+      maximumFractionDigits: 2
+    });
+  }
+
+  function calculateMedian(sorted) {
+    const n = sorted.length;
+
+    if (n % 2 === 1) {
+      return sorted[Math.floor(n / 2)];
+    }
+
+    return (sorted[n / 2 - 1] + sorted[n / 2]) / 2;
+  }
+
+  function calculateStats(values) {
+    const sorted = [...values].sort((a, b) => a - b);
+    const n = values.length;
+    const mean = values.reduce((sum, value) => sum + value, 0) / n;
+    const median = calculateMedian(sorted);
+
+    // Écart-type de population : on divise par n.
+    const variance = values.reduce(
+      (sum, value) => sum + Math.pow(value - mean, 2), 0
+    ) / n;
+
+    return {
+      mean,
+      median,
+      min: sorted[0],
+      max: sorted[n - 1],
+      stdDev: Math.sqrt(variance),
+      n
+    };
+  }
+
+  function drawHistogram(values, width) {
+    const rect = canvas.getBoundingClientRect();
+    const pixelRatio = window.devicePixelRatio || 1;
+
+    canvas.width = Math.max(1, Math.round(rect.width * pixelRatio));
+    canvas.height = Math.max(1, Math.round(rect.height * pixelRatio));
+
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    const canvasWidth = rect.width;
+    const canvasHeight = rect.height;
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+    const margin = { left: 55, right: 20, top: 25, bottom: 55 };
+    const plotWidth = canvasWidth - margin.left - margin.right;
+    const plotHeight = canvasHeight - margin.top - margin.bottom;
+
+    let min = Math.min(...values);
+    let max = Math.max(...values);
+
+    // Gérer le cas où toutes les valeurs sont identiques.
+    if (min === max) {
+      min -= width / 2;
+      max += width / 2;
+    }
+
+    const start = Math.floor(min / width) * width;
+    const end = Math.floor(max / width) * width + width;
+    const numberOfBins = Math.max(1, Math.ceil((end - start) / width));
+
+    // Limiter le nombre d'intervalles pour garder un graphique lisible.
+    if (numberOfBins > 200) {
+      throw new Error("Cette largeur crée trop d'intervalles. Augmente la largeur des intervalles.");
+    }
+
+    const bins = Array(numberOfBins).fill(0);
+
+    values.forEach(value => {
+      let index = Math.floor((value - start) / width);
+      index = Math.max(0, Math.min(numberOfBins - 1, index));
+      bins[index]++;
+    });
+
+    const maxCount = Math.max(...bins, 1);
+    const niceMax = Math.ceil(maxCount / 5) * 5 || maxCount;
+
+    ctx.font = "12px Roboto, sans-serif";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#dddddd";
+    ctx.fillStyle = "#333333";
+
+    // Lignes horizontales et échelle verticale
+    for (let i = 0; i <= 5; i++) {
+      const count = niceMax * i / 5;
+      const y = margin.top + plotHeight - (count / niceMax) * plotHeight;
+
+      ctx.beginPath();
+      ctx.moveTo(margin.left, y);
+      ctx.lineTo(margin.left + plotWidth, y);
+      ctx.stroke();
+
+      ctx.textAlign = "right";
+      ctx.textBaseline = "middle";
+      ctx.fillText(String(Math.round(count)), margin.left - 8, y);
+    }
+
+    // Barres
+    const barSpace = plotWidth / numberOfBins;
+
+    bins.forEach((count, i) => {
+      const barHeight = (count / niceMax) * plotHeight;
+      const x = margin.left + i * barSpace;
+      const y = margin.top + plotHeight - barHeight;
+
+      ctx.fillStyle = "#009688";
+      ctx.fillRect(
+        x + 1,
+        y,
+        Math.max(1, barSpace - 2),
+        barHeight
+      );
+    });
+
+    // Axes
+    ctx.strokeStyle = "#333333";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(margin.left, margin.top);
+    ctx.lineTo(margin.left, margin.top + plotHeight);
+    ctx.lineTo(margin.left + plotWidth, margin.top + plotHeight);
+    ctx.stroke();
+
+    // Étiquettes horizontales
+    ctx.fillStyle = "#333333";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+
+    const labelCount = Math.min(numberOfBins, 8);
+
+    for (let i = 0; i <= labelCount; i++) {
+      const binIndex = Math.min(
+        numberOfBins - 1,
+        Math.floor(i * numberOfBins / (labelCount + 1))
+      );
+
+      const x = margin.left + (binIndex + 0.5) * barSpace;
+      const label = formatNumber(start + binIndex * width);
+
+      ctx.fillText(label, x, margin.top + plotHeight + 8);
+    }
+
+    // Titres des axes
+    ctx.save();
+    ctx.translate(16, margin.top + plotHeight / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("Fréquence", 0, 0);
+    ctx.restore();
+
+    ctx.textAlign = "center";
+    ctx.textBaseline = "bottom";
+    ctx.fillText("Valeurs (début des intervalles)", margin.left + plotWidth / 2, canvasHeight - 5);
+  }
+
+  function makeInterpretation(stats) {
+    const difference = Math.abs(stats.mean - stats.median);
+    const scale = stats.stdDev || 1;
+
+    if (difference < 0.1 * scale) {
+      return "La moyenne et la médiane sont proches. Cela peut être compatible avec une distribution assez symétrique, mais il faut aussi observer l'histogramme pour confirmer sa forme.";
+    }
+
+    if (stats.mean < stats.median) {
+      return "La moyenne est plus petite que la médiane. Cela peut indiquer une asymétrie vers la gauche, surtout si l'histogramme montre une queue vers les petites valeurs.";
+    }
+
+    return "La moyenne est plus grande que la médiane. Cela peut indiquer une asymétrie vers la droite, surtout si l'histogramme montre une queue vers les grandes valeurs.";
+  }
+
+  function updateHistogram() {
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.textContent = "";
+
+    try {
+      const values = parseData();
+
+      if (values.length === 0) {
+        throw new Error("Entre au moins une valeur pour créer l'histogramme.");
+      }
+
+      const width = Number(binWidthInput.value);
+      binWidthLabel.textContent = width;
+
+      const stats = calculateStats(values);
+      drawHistogram(values, width);
+
+      document.getElementById("mean").textContent = formatNumber(stats.mean);
+      document.getElementById("median").textContent = formatNumber(stats.median);
+      document.getElementById("minimum").textContent = formatNumber(stats.min);
+      document.getElementById("maximum").textContent = formatNumber(stats.max);
+      document.getElementById("stdDev").textContent = formatNumber(stats.stdDev);
+      document.getElementById("count").textContent = stats.n;
+      document.getElementById("interpretation").textContent = makeInterpretation(stats);
+
+    } catch (error) {
+      errorMessage.textContent = error.message;
+    }
+  }
+
+  function loadExample() {
+    dataInput.value = "5, 8, 9, 10, 10, 11, 12, 12, 13, 14, 14, 15, 16, 18, 20, 22, 25, 28, 30, 35";
+    binWidthInput.value = 5;
+    updateHistogram();
+  }
+
+  binWidthInput.addEventListener("input", updateHistogram);
+  dataInput.addEventListener("input", updateHistogram);
+  window.addEventListener("resize", updateHistogram);
+
+  // Créer le graphique au chargement de la page.
+  updateHistogram();
 </script>
-     
+
 </body>
-</html> 
+</html>
