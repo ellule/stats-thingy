@@ -1,146 +1,631 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>MDM4U</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-  padding: 16px;
-  font-weight: bold;
-}
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MDM4U - Représentation des données</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      line-height: 1.7;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    .section-card {
+      background: #f5fafa;
+      border-left: 5px solid #009688;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .topic-card {
+      background: white;
+      border: 1px solid #d5e5e3;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .example-box {
+      background: #e0f2f1;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+
+    .chart-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    .chart-container iframe {
+      display: block;
+      width: 100%;
+      min-width: 300px;
+      max-width: 700px;
+      height: 400px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: white;
+    }
+
+    .reference {
+      margin-bottom: 16px;
+      padding-left: 2em;
+      text-indent: -2em;
+      overflow-wrap: anywhere;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Barre de navigation -->
+<div id="nav-placeholder"></div>
 
 <script>
-$(function(){
-  $("#nav-placeholder").load("nav.html");
-});
+  $(function() {
+    $("#nav-placeholder").load("nav.html");
+  });
 </script>
-<!--end of Navigation bar-->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
-
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">1.1 - Représentation des données</h1>
-</header>
-
-<div class="w3-container" style="padding:32px">
-
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-
-<h1>Les différents types de données</h1>
-<h3>Variable Quantitative (continue et discrète)</h3>
-<p>Une variable quantitative est une caractéristique mesurable qui s'exprime par un nombre ou une quantité. [Allo prof] 
-Exemples par moi : 
--	Continue : peut prendre n’importe quelle valeur dans un intervalle, y compris des décimales.
-Exemple : la taille d’une personne (165,5 cm). 
--	Discrète : peut prendre seulement des valeurs précises et séparées, généralement des nombres entiers.
-Exemple : le nombre de frères et sœurs (0, 1, 2, 3...).
-</p>
-
-<h3>Variable Qualitative (nominale et ordinale)</h3>
-<p>Une variable qualitative (ou catégorique) exprime une qualité ou une catégorie qui ne se mesure pas avec un nombre. Ses différentes valeurs possibles sont appelées des modalités. [Statistique Canada]
-Exemples par moi : 
--	Nominale : les catégories n’ont pas d’ordre particulier.
-Exemple : la couleur des yeux (bleu, brun, vert, etc.). 
--	Ordinale : les catégories peuvent être classées dans un ordre, mais la différence entre les catégories n’est pas mesurée précisément.
-Exemple : le niveau de satisfaction (insatisfait, neutre, satisfait, très satisfait).</p>
-
-
-<h1>Certains types de diagrammes</h1>
-<h3>Diagramme à bandes </h3>
-<p>Un diagramme à bandes utilise des barres pour comparer différentes catégories de données. Les barres sont séparées les unes des autres. On l’utilise pour comparer des catégories, par exemple le nombre d’élèves qui préfèrent différents sports.</p>
-<h3>Histogramme</h3>
-<p>Un histogramme utilise des barres collées les unes aux autres pour représenter des données quantitatives regroupées en intervalles. On l’utilise pour montrer la distribution de données, par exemple les résultats d’un test ou l’âge des élèves.</p>
-<h3>Diagramme circulaire</h3>
-<p>Un diagramme circulaire est un cercle divisé en sections qui représentent des parties d’un total. On l’utilise pour montrer les proportions ou les pourcentages d’un ensemble, par exemple le pourcentage d’élèves qui préfèrent différents types de musique.</p>
-<h3>Diagramme à ligne brisée</h3>
-<p>Un diagramme à ligne brisée utilise des points reliés par des lignes pour montrer comment une donnée change, souvent au fil du temps. On l’utilise pour montrer une tendance, par exemple l’évolution de la température pendant une semaine.</p>
-
-
-<h1>Exemples de graphiques créés avec Google Sheets</h1>
-<h3>Diagramme à bandes</h3>
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8JCr_9Fqju8V2dHhsHtd28Fb-oUtDdaF9hTiYfotNf-WwPTJpE-ykmwTZCJdpmSPED9G8vjP-6EEr/pubchart?oid=1470843089&amp;format=interactive"></iframe>
-<h3>Histogramme</h3>
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8JCr_9Fqju8V2dHhsHtd28Fb-oUtDdaF9hTiYfotNf-WwPTJpE-ykmwTZCJdpmSPED9G8vjP-6EEr/pubchart?oid=93670393&amp;format=interactive"></iframe>
-<h3>Diagramme circulaire</h3>
-<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8JCr_9Fqju8V2dHhsHtd28Fb-oUtDdaF9hTiYfotNf-WwPTJpE-ykmwTZCJdpmSPED9G8vjP-6EEr/pubchart?oid=862656746&amp;format=interactive"></iframe>
-<section class="references">
-  <h2>Références</h2>
-  <div class="reference-list">
-    <p class="reference">
-      Alloprof aide aux devoirs | alloprof. (n.d.). Www.Alloprof.Qc.Ca. Retrieved September 18, 2026, from https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/les-types-de-variables-m1108
-Gouvernement du Canada, S. C. (2002, September 16). Les statistiques : Le Pouvoir des données! Organisation Des Données : Variables. Www150.Statcan.Gc.Ca. https://www150.statcan.gc.ca/n1/edu/power-pouvoir/ch8/5214817-fra.htm
+  <!-- Barre supérieure -->
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
     </p>
   </div>
-</section>
 
-<style>
-  .references h2 {
-    font-weight: bold;
-    margin-bottom: 1em;
-  }
-  .reference {
-    margin: 0 0 1em 0;
-    padding-left: 2em;
-    text-indent: -2em; /* crée le retrait en sautoir (hanging indent) */
-    line-height: 1.5;
-  }
-</style>
+  <!-- En-tête -->
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">1.1 - Représentation des données</h1>
+    <p>Comprendre les variables et choisir le bon type de diagramme</p>
+  </header>
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+  <main class="w3-container" style="padding:32px">
 
-</div>
+    <!-- Introduction -->
+    <section class="section-card">
+      <h2><i class="fa fa-bar-chart"></i> Introduction</h2>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
+      <p>
+        Les statistiques permettent de recueillir, d'organiser et d'analyser
+        des données. Pour bien les comprendre, il faut d'abord identifier le
+        type de données que l'on étudie, puis choisir une représentation
+        graphique adaptée.
+      </p>
+
+      <p>
+        Il existe deux grandes catégories de variables : les variables
+        quantitatives, qui représentent des nombres ou des quantités, et les
+        variables qualitatives, qui représentent des catégories.
+      </p>
+
+      <p>
+        Les graphiques permettent ensuite de présenter les données de façon
+        visuelle, de comparer des groupes et de repérer des tendances.
+      </p>
+    </section>
+
+    <!-- Types de variables -->
+    <section class="section-card">
+      <h2>1. Les différents types de variables</h2>
+
+      <p>
+        Une variable est une caractéristique observée ou mesurée chez une
+        personne, un objet ou un groupe. Le type de variable dépend de la
+        nature de l'information recueillie.
+      </p>
+
+      <div class="topic-card">
+        <h3>1.1 Les variables quantitatives</h3>
+
+        <p>
+          Une variable quantitative représente une quantité mesurable ou
+          dénombrable. Ses valeurs sont numériques et peuvent être utilisées
+          dans des calculs.
+        </p>
+
+        <h4>Variable quantitative discrète</h4>
+
+        <p>
+          Une variable discrète prend des valeurs séparées et dénombrables,
+          souvent des nombres entiers. On l'utilise généralement lorsqu'on compte
+          quelque chose.
+        </p>
+
+        <div class="example-box">
+          <strong>Exemples :</strong>
+          <ul>
+            <li>Le nombre de frères et sœurs : 0, 1, 2, 3, etc.</li>
+            <li>Le nombre d'élèves dans une classe.</li>
+            <li>Le nombre de buts marqués pendant un match.</li>
+          </ul>
+        </div>
+
+        <h4>Variable quantitative continue</h4>
+
+        <p>
+          Une variable continue peut prendre n'importe quelle valeur dans un
+          intervalle, y compris des valeurs décimales. Elle est souvent obtenue
+          par une mesure.
+        </p>
+
+        <div class="example-box">
+          <strong>Exemples :</strong>
+          <ul>
+            <li>La taille d'une personne : 165,5 cm.</li>
+            <li>La durée d'un trajet : 12,7 minutes.</li>
+            <li>La masse d'un objet : 2,35 kg.</li>
+          </ul>
+        </div>
+
+        <p>
+          <strong>Astuce :</strong> si tu comptes des éléments, la variable est
+          souvent discrète. Si tu mesures une quantité qui peut prendre des
+          valeurs intermédiaires, elle est souvent continue.
+        </p>
+      </div>
+
+      <div class="topic-card">
+        <h3>1.2 Les variables qualitatives</h3>
+
+        <p>
+          Une variable qualitative représente une caractéristique ou une
+          catégorie. Les valeurs possibles sont appelées des modalités.
+          Même si une catégorie est représentée par un chiffre, cela ne signifie
+          pas nécessairement que la variable est quantitative.
+        </p>
+
+        <h4>Variable qualitative nominale</h4>
+
+        <p>
+          Une variable nominale possède des catégories qui n'ont pas d'ordre
+          naturel. On ne peut pas classer les catégories de la plus petite
+          à la plus grande.
+        </p>
+
+        <div class="example-box">
+          <strong>Exemples :</strong>
+          <ul>
+            <li>La couleur des yeux : bleu, brun, vert, etc.</li>
+            <li>Le moyen de transport : autobus, vélo, voiture, marche.</li>
+            <li>Le genre musical préféré : pop, rock, rap, jazz, etc.</li>
+          </ul>
+        </div>
+
+        <h4>Variable qualitative ordinale</h4>
+
+        <p>
+          Une variable ordinale possède des catégories qui peuvent être placées
+          dans un ordre. Cependant, les écarts entre les catégories ne sont pas
+          nécessairement mesurables ou égaux.
+        </p>
+
+        <div class="example-box">
+          <strong>Exemples :</strong>
+          <ul>
+            <li>Le niveau de satisfaction : insatisfait, neutre, satisfait, très satisfait.</li>
+            <li>Un niveau de difficulté : facile, moyen, difficile.</li>
+            <li>Une appréciation : faible, bon, très bon, excellent.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Tableau récapitulatif</h3>
+
+      <div class="w3-responsive">
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-theme">
+              <th>Type de variable</th>
+              <th>Caractéristique</th>
+              <th>Exemple</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Quantitative discrète</td>
+              <td>Valeurs dénombrables et séparées</td>
+              <td>Nombre d'animaux de compagnie</td>
+            </tr>
+            <tr>
+              <td>Quantitative continue</td>
+              <td>Valeurs mesurables pouvant inclure des décimales</td>
+              <td>Durée d'un trajet</td>
+            </tr>
+            <tr>
+              <td>Qualitative nominale</td>
+              <td>Catégories sans ordre naturel</td>
+              <td>Couleur préférée</td>
+            </tr>
+            <tr>
+              <td>Qualitative ordinale</td>
+              <td>Catégories qui peuvent être ordonnées</td>
+              <td>Niveau de satisfaction</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Types de diagrammes -->
+    <section class="section-card">
+      <h2>2. Les différents types de diagrammes</h2>
+
+      <p>
+        Chaque diagramme a un objectif particulier. Le choix dépend du type de
+        données et de l'information que l'on souhaite mettre en évidence.
+      </p>
+
+      <div class="topic-card">
+        <h3>2.1 Diagramme à bandes</h3>
+
+        <p>
+          Un diagramme à bandes utilise des barres séparées pour représenter
+          différentes catégories. La hauteur ou la longueur de chaque barre
+          indique la fréquence ou la quantité associée à cette catégorie.
+        </p>
+
+        <p>
+          <strong>Quand l'utiliser :</strong> pour comparer des catégories ou
+          des groupes distincts.
+        </p>
+
+        <p>
+          <strong>Exemple :</strong> comparer le nombre d'élèves qui préfèrent
+          le soccer, le basketball, le volleyball ou le badminton.
+        </p>
+
+        <p>
+          <strong>À retenir :</strong> les barres sont séparées parce que les
+          catégories sont distinctes.
+        </p>
+      </div>
+
+      <div class="topic-card">
+        <h3>2.2 Histogramme</h3>
+
+        <p>
+          Un histogramme utilise des barres collées les unes aux autres pour
+          représenter des données quantitatives regroupées en intervalles.
+          La hauteur des barres montre la fréquence des valeurs dans chaque
+          intervalle.
+        </p>
+
+        <p>
+          <strong>Quand l'utiliser :</strong> pour comprendre la distribution
+          des données, notamment leur forme, leur concentration et leur dispersion.
+        </p>
+
+        <p>
+          <strong>Exemple :</strong> représenter les résultats d'un test regroupés
+          dans des intervalles de notes ou les tailles des élèves d'une classe.
+        </p>
+
+        <p>
+          <strong>À retenir :</strong> les barres sont généralement collées,
+          car les intervalles représentent des valeurs numériques qui se suivent.
+        </p>
+      </div>
+
+      <div class="topic-card">
+        <h3>2.3 Diagramme circulaire</h3>
+
+        <p>
+          Un diagramme circulaire est un cercle divisé en secteurs. Chaque
+          secteur représente une partie d'un total, souvent sous forme de
+          pourcentage. L'ensemble du cercle représente 100 %.
+        </p>
+
+        <p>
+          <strong>Quand l'utiliser :</strong> pour montrer comment un total se
+          répartit entre différentes catégories.
+        </p>
+
+        <p>
+          <strong>Exemple :</strong> présenter le pourcentage d'élèves qui
+          préfèrent différents genres musicaux.
+        </p>
+
+        <p>
+          <strong>À retenir :</strong> les catégories doivent représenter des
+          parties d'un même ensemble et les proportions doivent totaliser 100 %.
+        </p>
+      </div>
+
+      <div class="topic-card">
+        <h3>2.4 Diagramme à ligne brisée</h3>
+
+        <p>
+          Un diagramme à ligne brisée utilise des points reliés par des segments
+          pour montrer comment une valeur évolue, souvent au fil du temps.
+        </p>
+
+        <p>
+          <strong>Quand l'utiliser :</strong> pour observer une évolution, une
+          tendance ou des changements entre plusieurs moments.
+        </p>
+
+        <p>
+          <strong>Exemple :</strong> représenter la température quotidienne
+          pendant une semaine ou l'évolution des ventes d'un magasin au fil des mois.
+        </p>
+
+        <p>
+          <strong>À retenir :</strong> l'ordre des points est important,
+          particulièrement lorsque les données représentent une période de temps.
+        </p>
+      </div>
+    </section>
+
+    <!-- Comparaison des graphiques -->
+    <section class="section-card">
+      <h2>3. Comment choisir le bon diagramme ?</h2>
+
+      <div class="w3-responsive">
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-theme">
+              <th>Diagramme</th>
+              <th>Type de données ou situation</th>
+              <th>Objectif principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Diagramme à bandes</td>
+              <td>Catégories distinctes</td>
+              <td>Comparer des catégories</td>
+            </tr>
+            <tr>
+              <td>Histogramme</td>
+              <td>Données quantitatives regroupées en intervalles</td>
+              <td>Observer une distribution</td>
+            </tr>
+            <tr>
+              <td>Diagramme circulaire</td>
+              <td>Catégories qui forment un total</td>
+              <td>Montrer des proportions</td>
+            </tr>
+            <tr>
+              <td>Diagramme à ligne brisée</td>
+              <td>Données ordonnées, souvent dans le temps</td>
+              <td>Montrer une évolution</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="example-box">
+        <h3>Exemple pratique</h3>
+        <p>
+          Imagine que tu recueilles des données sur les élèves de ton école.
+        </p>
+        <ul>
+          <li>Pour comparer leurs sports préférés, utilise un diagramme à bandes.</li>
+          <li>Pour représenter la distribution de leurs tailles, utilise un histogramme.</li>
+          <li>Pour montrer la proportion d'élèves qui utilisent chaque moyen de transport, utilise un diagramme circulaire.</li>
+          <li>Pour comparer la température chaque jour pendant un mois, utilise un diagramme à ligne brisée.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Exemples Google Sheets -->
+    <section class="section-card">
+      <h2>4. Exemples de graphiques créés avec Google Sheets</h2>
+
+      <p>
+        Les graphiques suivants ont été publiés à partir de Google Sheets.
+        Observe leur structure et réfléchis au type de données que chacun permet
+        de présenter.
+      </p>
+
+      <div class="topic-card">
+        <h3>4.1 Diagramme à bandes</h3>
+
+        <p>
+          Ce graphique permet de comparer les catégories entre elles.
+          Observe les barres séparées et compare leurs hauteurs pour déterminer
+          quelles catégories possèdent les fréquences les plus élevées ou les plus faibles.
+        </p>
+
+        <div class="chart-container">
+          <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8JCr_9Fqju8V2dHhsHtd28Fb-oUtDdaF9hTiYfotNf-WwPTJpE-ykmwTZCJdpmSPED9G8vjP-6EEr/pubchart?oid=1470843089&amp;format=interactive"
+            title="Exemple de diagramme à bandes créé avec Google Sheets"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <h3>4.2 Histogramme</h3>
+
+        <p>
+          Un histogramme permet d'observer comment les valeurs sont réparties
+          dans différents intervalles. Regarde les hauteurs des barres pour
+          repérer les intervalles les plus fréquents et la forme générale de la distribution.
+        </p>
+
+        <div class="chart-container">
+          <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8JCr_9Fqju8V2dHhsHtd28Fb-oUtDdaF9hTiYfotNf-WwPTJpE-ykmwTZCJdpmSPED9G8vjP-6EEr/pubchart?oid=93670393&amp;format=interactive"
+            title="Exemple d'histogramme créé avec Google Sheets"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <h3>4.3 Diagramme circulaire</h3>
+
+        <p>
+          Ce graphique représente les parties d'un ensemble. Observe la taille
+          des secteurs pour comparer les proportions de chaque catégorie.
+        </p>
+
+        <div class="chart-container">
+          <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8JCr_9Fqju8V2dHhsHtd28Fb-oUtDdaF9hTiYfotNf-WwPTJpE-ykmwTZCJdpmSPED9G8vjP-6EEr/pubchart?oid=862656746&amp;format=interactive"
+            title="Exemple de diagramme circulaire créé avec Google Sheets"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <p>
+        <strong>Petite réflexion :</strong> avant de créer un graphique, demande-toi
+        si tu veux comparer des catégories, montrer des proportions, étudier une
+        distribution ou représenter une évolution.
+      </p>
+    </section>
+
+    <!-- Résumé -->
+    <section class="w3-panel w3-pale-green w3-leftbar w3-border-green"
+             style="padding:20px; border-radius:6px;">
+      <h2>5. À retenir</h2>
+
+      <ul>
+        <li>
+          Les variables quantitatives représentent des quantités et peuvent être
+          discrètes ou continues.
+        </li>
+        <li>
+          Les variables qualitatives représentent des catégories et peuvent être
+          nominales ou ordinales.
+        </li>
+        <li>
+          Le diagramme à bandes sert à comparer des catégories.
+        </li>
+        <li>
+          L'histogramme sert à visualiser la distribution de données quantitatives.
+        </li>
+        <li>
+          Le diagramme circulaire montre des proportions d'un total.
+        </li>
+        <li>
+          Le diagramme à ligne brisée montre une évolution, souvent dans le temps.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Bibliographie -->
+    <section class="section-card">
+      <h2><i class="fa fa-book"></i> 6. Références et bibliographie</h2>
+
+      <p>
+        Les ressources suivantes m'ont aidée à comprendre les types de variables
+        et l'organisation des données.
+      </p>
+
+      <div class="reference">
+        Alloprof. (s. d.). <em>Les types de variables</em>.
+        Consulté le 18 septembre 2026.
+        <a href="https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/les-types-de-variables-m1108"
+           target="_blank" rel="noopener noreferrer">
+          https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/les-types-de-variables-m1108
+        </a>
+      </div>
+
+      <div class="reference">
+        Statistique Canada. (2002, 16 septembre).
+        <em>Les statistiques : Le pouvoir des données! Organisation des données : Variables.</em>
+        <a href="https://www150.statcan.gc.ca/n1/edu/power-pouvoir/ch8/5214817-fra.htm"
+           target="_blank" rel="noopener noreferrer">
+          https://www150.statcan.gc.ca/n1/edu/power-pouvoir/ch8/5214817-fra.htm
+        </a>
+      </div>
+
+      <div class="reference">
+        Google. (s. d.). <em>Google Sheets</em>.
+        Outil utilisé pour créer et publier les exemples de graphiques.
+        <a href="https://sheets.google.com/"
+           target="_blank" rel="noopener noreferrer">
+          https://sheets.google.com/
+        </a>
+      </div>
+
+      <div class="reference">
+        Les graphiques de cette page sont intégrés à partir des graphiques
+        Google Sheets fournis dans le portfolio du cours.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
 </div>
 
 <script>
-// Open and close the sidebar on medium and small screens
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
+  // Ouvrir et fermer le menu sur les petits écrans.
+  function w3_open() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
-  } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+    if (sidebar) sidebar.style.display = "block";
+    if (overlay) overlay.style.display = "block";
   }
-}
 
+  function w3_close() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
+
+    if (sidebar) sidebar.style.display = "none";
+    if (overlay) overlay.style.display = "none";
+  }
+
+  // Modifier la barre supérieure lorsque la page défile.
+  window.onscroll = function() {
+    myFunction();
+  };
+
+  function myFunction() {
+    const top = document.getElementById("myTop");
+    const intro = document.getElementById("myIntro");
+
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+      top.classList.add("w3-card-4", "w3-animate-opacity");
+      intro.classList.add("w3-show-inline-block");
+    } else {
+      intro.classList.remove("w3-show-inline-block");
+      top.classList.remove("w3-card-4", "w3-animate-opacity");
+    }
+  }
 </script>
-     
+
 </body>
-</html> 
+</html>
