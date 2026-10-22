@@ -1,113 +1,418 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>MDM4U</title>
+<title>MDM4U - 1.2 L'échantillonnage</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
-body {font-family: "Roboto", sans-serif}
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.7;
+  background-color: #f7fafa;
+}
+
 .w3-bar-block .w3-bar-item {
   padding: 16px;
   font-weight: bold;
 }
+
+.content-card {
+  background: white;
+  padding: 24px;
+  margin: 24px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.example {
+  background: #e0f2f1;
+  border-left: 5px solid #009688;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.warning {
+  background: #fff3e0;
+  border-left: 5px solid #ff9800;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.definition {
+  color: #00695c;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background-color: #009688;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .content-card {
+    padding: 16px;
+  }
+}
 </style>
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<body>
+
+<!-- Navigation -->
+<div id="nav-placeholder"></div>
 
 <script>
 $(function(){
   $("#nav-placeholder").load("nav.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!-- End navigation -->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
-
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">1.2 - L'échantillionnage</h1>
-</header>
-
-<div class="w3-container" style="padding:32px">
-<section class="references">
-  <h2>Références</h2>
-  <div class="reference-list">
-    <p class="reference">
-     ReferencesAlloprof. (n.d.). L’échantillonage. Retrieved October 2, 2026, from https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/l-echantillonnage-secondaire-1-et-2-m1362s12Bhat, A. (2019, May 17). Échantillon de réponse volontaire : Définition, caractéristiques, exemples et avantages. QuestionPro. https://www.questionpro.com/blog/fr/reponse-volontaire-echantillon/Canada, G. du C. S. (2026). Section 2. Échantillonnage stratifié. Statcan.Gc.Ca. https://www150.statcan.gc.ca/n1/pub/12-001-x/2019002/article/00006/02-fra.htmFleetwood, D. (2018, March 13). L’échantillonnage en grappes : Définition, méthode et exemples. QuestionPro. https://www.questionpro.com/blog/fr/echantillonnage-en-grappes/Mathéma-TIC. (2015, September 15). Échantillonnage systématique [Video]. YouTube. https://www.youtube.com/watch?v=GIZ16huvueY
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
     </p>
   </div>
-</section>
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
 
-<h2>Échantillonnage volontaire</h2>
-<p>C’est lorsque les personnes choisissent elles-mêmes de participer à l’étude.<br></p>
-<p>Exemple : Une école publie un sondage et les élèves qui veulent répondre décident de le remplir.<br></p>
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">1.2 - L'échantillonnage</h1>
+    <p class="w3-xlarge">Comment choisir un groupe de personnes pour représenter une population?</p>
+  </header>
 
-<h2>Échantillonnage aléatoire simple</h2>
-<p>C’est lorsque chaque personne a la même chance d’être choisie pour participer.<br></p>
-<p>Exemple : Une école choisit au hasard 50 élèves parmi tous les élèves de l’école.<br></p>
+  <main class="w3-container" style="padding:32px">
 
-<h2>Échantillonnage aléatoire stratifié</h2>
-<p>C’est lorsque la population est divisée en groupes, puis des personnes sont choisies au hasard dans chaque groupe.<br></p>
-<p>Exemple : Une école sépare les élèves par niveau (9e, 10e, 11e et 12e), puis choisit au hasard 10 élèves de chaque niveau.<br></p>
+    <!-- Introduction -->
+    <section class="content-card">
+      <h2><i class="fa fa-users"></i> Qu'est-ce que l'échantillonnage?</h2>
 
-<h2>Échantillonnage aléatoire en grappes</h2>
-<p>C’est lorsque la population est divisée en groupes, puis on choisit au hasard un ou plusieurs groupes entiers.<br></p>
-<p>Exemple : Une école choisit au hasard 3 classes et fait participer tous les élèves de ces classes.<br></p>
+      <p>L'<span class="definition">échantillonnage</span> est une méthode qui permet de choisir un petit groupe de personnes ou d'éléments afin d'étudier une population plus grande.</p>
 
-<h2>Échantillonnage aléatoire systématique</h2>
-<p>C’est lorsque l’on choisit des personnes à intervalles réguliers dans une liste.<br></p>
-<p>Exemple : Une école a une liste de 500 élèves et choisit un élève sur 10 pour participer au sondage.<br></p>
-<p><a href="https://docs.google.com/document/d/14Qnm2ENPpJ3XMRtwJXF5a7wUz5Z5DRQmFcrYoOCpR5k/edit?usp=sharing" target="_blank">Lien vers exercices</a></p>
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+      <ul>
+        <li><strong>Population :</strong> le groupe complet que l'on veut étudier.</li>
+        <li><strong>Échantillon :</strong> le groupe sélectionné pour participer à l'étude.</li>
+        <li><strong>Échantillonnage :</strong> la méthode utilisée pour choisir l'échantillon.</li>
+      </ul>
 
-</div>
+      <div class="example">
+        <strong>Exemple :</strong> Une école compte 1 000 élèves. La direction veut connaître leur opinion sur la cafétéria, mais elle ne veut pas interroger chaque élève.
+        <ul>
+          <li>Population : les 1 000 élèves.</li>
+          <li>Échantillon : les 100 élèves sélectionnés pour répondre au sondage.</li>
+        </ul>
+      </div>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
+      <p>Un bon échantillon devrait représenter la population le plus fidèlement possible. La façon de choisir les participants peut influencer les résultats.</p>
+    </section>
+
+    <!-- Voluntary sampling -->
+    <section class="content-card">
+      <h2>1. L'échantillonnage volontaire</h2>
+
+      <p>Dans un <span class="definition">échantillonnage volontaire</span>, les personnes choisissent elles-mêmes de participer à l'étude.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école publie un sondage en ligne sur la cafétéria. Les élèves qui veulent donner leur opinion décident de remplir le formulaire.
+      </div>
+
+      <p><strong>Avantage :</strong> C'est simple et rapide à organiser.</p>
+      <p><strong>Limite :</strong> Les personnes qui répondent peuvent avoir des opinions plus fortes que celles qui ne participent pas. Les résultats risquent donc de ne pas représenter tous les élèves.</p>
+
+      <div class="warning">
+        <strong>À retenir :</strong> Les participants se portent volontaires. Ils ne sont pas nécessairement choisis au hasard.
+      </div>
+    </section>
+
+    <!-- Simple random sampling -->
+    <section class="content-card">
+      <h2>2. L'échantillonnage aléatoire simple</h2>
+
+      <p>Dans un <span class="definition">échantillonnage aléatoire simple</span>, chaque membre de la population a la même chance d'être sélectionné.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école utilise un générateur de nombres aléatoires pour choisir 50 élèves parmi la liste complète des élèves.
+      </div>
+
+      <p><strong>Avantage :</strong> La sélection est impartiale si la liste utilisée comprend toute la population et que le tirage est effectué correctement.</p>
+      <p><strong>Limite :</strong> Il faut avoir accès à une liste complète de la population. Par hasard, certains groupes peuvent être moins représentés dans l'échantillon.</p>
+
+      <p><i class="fa fa-lightbulb-o"></i> Pense à un tirage au sort : chaque personne a une chance égale d'être choisie.</p>
+    </section>
+
+    <!-- Stratified sampling -->
+    <section class="content-card">
+      <h2>3. L'échantillonnage aléatoire stratifié</h2>
+
+      <p>Dans un <span class="definition">échantillonnage aléatoire stratifié</span>, on divise d'abord la population en groupes appelés <strong>strates</strong>. On choisit ensuite au hasard des personnes dans chaque strate.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école veut sonder des élèves de la 9e à la 12e année. Elle sépare les élèves selon leur niveau scolaire, puis choisit au hasard des élèves dans chaque niveau.
+      </div>
+
+      <p><strong>Avantage :</strong> Cela permet de s'assurer que les groupes importants sont représentés dans l'échantillon.</p>
+      <p><strong>Limite :</strong> Il faut connaître les groupes qui composent la population et organiser la sélection dans chacun d'eux.</p>
+
+      <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
+        <strong>Indice :</strong> Stratifié = un échantillon de personnes est choisi dans chaque groupe.
+      </div>
+    </section>
+
+    <!-- Cluster sampling -->
+    <section class="content-card">
+      <h2>4. L'échantillonnage aléatoire en grappes</h2>
+
+      <p>Dans un <span class="definition">échantillonnage aléatoire en grappes</span>, on divise la population en groupes naturels, puis on choisit au hasard une ou plusieurs grappes. Tous les membres des grappes sélectionnées participent généralement à l'étude.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école choisit au hasard trois classes parmi toutes les classes de l'école. Tous les élèves de ces trois classes répondent au sondage.
+      </div>
+
+      <p><strong>Avantage :</strong> C'est pratique lorsque les personnes sont déjà regroupées, par exemple dans des classes ou des quartiers.</p>
+      <p><strong>Limite :</strong> Les grappes sélectionnées peuvent être différentes des autres groupes. Les résultats peuvent être moins représentatifs si les grappes ne reflètent pas bien la population.</p>
+
+      <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
+        <strong>Indice :</strong> En grappes = on sélectionne des groupes entiers.
+      </div>
+    </section>
+
+    <!-- Systematic sampling -->
+    <section class="content-card">
+      <h2>5. L'échantillonnage aléatoire systématique</h2>
+
+      <p>Dans un <span class="definition">échantillonnage systématique</span>, on sélectionne des personnes à intervalles réguliers dans une liste, après avoir choisi un point de départ au hasard.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école possède une liste de 500 élèves et veut en sélectionner 50. Elle choisit d'abord un numéro de départ au hasard entre 1 et 10, puis sélectionne cet élève et chaque dixième élève après lui.
+      </div>
+
+      <p><strong>Avantage :</strong> La méthode est facile à appliquer et permet de sélectionner les participants de façon organisée.</p>
+      <p><strong>Limite :</strong> Si la liste suit un ordre qui correspond à un motif régulier, cela peut influencer les résultats.</p>
+
+      <h3>Vidéo explicative</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/GIZ16huvueY"
+          title="Explication de l'échantillonnage systématique"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="content-card">
+      <h2><i class="fa fa-table"></i> Comparaison des méthodes</h2>
+
+      <p>Voici les différences essentielles entre les cinq méthodes d'échantillonnage.</p>
+
+      <div style="overflow-x:auto;">
+        <table class="w3-table-all">
+          <thead>
+            <tr>
+              <th>Méthode</th>
+              <th>Comment choisir les participants?</th>
+              <th>Exemple rapide</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Volontaire</strong></td>
+              <td>Les personnes décident elles-mêmes de participer.</td>
+              <td>Les élèves qui veulent répondre remplissent un sondage en ligne.</td>
+            </tr>
+            <tr>
+              <td><strong>Aléatoire simple</strong></td>
+              <td>On choisit des personnes au hasard dans toute la population.</td>
+              <td>Tirer au hasard 50 noms d'une liste.</td>
+            </tr>
+            <tr>
+              <td><strong>Aléatoire stratifié</strong></td>
+              <td>On choisit au hasard des personnes dans chaque strate.</td>
+              <td>Choisir des élèves dans chaque niveau scolaire.</td>
+            </tr>
+            <tr>
+              <td><strong>Aléatoire en grappes</strong></td>
+              <td>On choisit au hasard des groupes entiers.</td>
+              <td>Choisir trois classes et interroger tous leurs élèves.</td>
+            </tr>
+            <tr>
+              <td><strong>Aléatoire systématique</strong></td>
+              <td>On choisit une personne à intervalles réguliers, avec un départ au hasard.</td>
+              <td>Choisir un élève sur dix dans une liste.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- How to identify -->
+    <section class="content-card">
+      <h2><i class="fa fa-search"></i> Comment reconnaître la méthode?</h2>
+
+      <p>Quand tu lis une question, cherche les indices suivants :</p>
+
+      <ul>
+        <li><strong>« Les personnes décident de participer »</strong> : échantillonnage volontaire.</li>
+        <li><strong>« Des noms sont tirés au hasard dans une liste complète »</strong> : échantillonnage aléatoire simple.</li>
+        <li><strong>« Des personnes sont choisies dans chaque groupe »</strong> : échantillonnage stratifié.</li>
+        <li><strong>« Des classes ou des groupes entiers sont sélectionnés »</strong> : échantillonnage en grappes.</li>
+        <li><strong>« Chaque 5e, 10e ou 20e personne est sélectionnée »</strong> : échantillonnage systématique.</li>
+      </ul>
+
+      <div class="warning">
+        <strong>Attention à la différence entre stratifié et en grappes :</strong>
+        <ul>
+          <li><strong>Stratifié :</strong> on prend quelques personnes dans chaque groupe.</li>
+          <li><strong>En grappes :</strong> on choisit certains groupes et on inclut généralement tous leurs membres.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bias -->
+    <section class="content-card">
+      <h2><i class="fa fa-exclamation-triangle"></i> Le biais d'échantillonnage</h2>
+
+      <p>Un <strong>biais d'échantillonnage</strong> se produit lorsque la méthode de sélection favorise certaines personnes ou certains groupes et ne représente pas correctement la population.</p>
+
+      <div class="example">
+        <strong>Exemple :</strong> Une école veut connaître l'opinion de tous ses élèves sur les activités parascolaires, mais elle ne questionne que les élèves qui participent déjà à ces activités. Les réponses risquent de ne pas représenter les élèves qui n'y participent pas.
+      </div>
+
+      <p>Pour réduire les biais, il est important de choisir une méthode adaptée à la question, d'inclure les différents groupes pertinents et d'éviter de sélectionner uniquement les personnes les plus faciles à joindre.</p>
+    </section>
+
+    <!-- Exercise link -->
+    <section class="content-card w3-center">
+      <h2><i class="fa fa-pencil"></i> À toi de pratiquer!</h2>
+      <p>Utilise les exercices pour vérifier si tu peux reconnaître les différentes méthodes d'échantillonnage.</p>
+
+      <a class="w3-button w3-teal w3-round-large w3-padding-large"
+         href="https://docs.google.com/document/d/14Qnm2ENPpJ3XMRtwJXF5a7wUz5Z5DRQmFcrYoOCpR5k/edit?usp=sharing"
+         target="_blank"
+         rel="noopener noreferrer">
+        <i class="fa fa-external-link"></i> Ouvrir les exercices
+      </a>
+    </section>
+
+    <!-- Summary -->
+    <section class="content-card">
+      <h2><i class="fa fa-check-circle"></i> Résumé</h2>
+
+      <ul>
+        <li>L'échantillonnage sert à sélectionner un groupe pour étudier une population plus grande.</li>
+        <li>Un échantillon représentatif reflète bien les caractéristiques importantes de la population étudiée.</li>
+        <li>L'échantillonnage volontaire dépend du choix des participants.</li>
+        <li>L'échantillonnage aléatoire simple choisit des personnes au hasard dans toute la population.</li>
+        <li>L'échantillonnage stratifié choisit des personnes dans chaque groupe.</li>
+        <li>L'échantillonnage en grappes choisit des groupes entiers.</li>
+        <li>L'échantillonnage systématique choisit des personnes à intervalles réguliers après un départ au hasard.</li>
+        <li>Un biais peut rendre les résultats moins représentatifs.</li>
+      </ul>
+    </section>
+
+    <!-- References -->
+    <section class="content-card">
+      <h2><i class="fa fa-book"></i> Références</h2>
+
+      <p>Alloprof. (s. d.). <em>L'échantillonnage.</em> https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/l-echantillonnage-secondaire-1-et-2-m1362s12</p>
+
+      <p>Bhat, A. (2019, 17 mai). <em>Échantillon de réponse volontaire : définition, caractéristiques, exemples et avantages.</em> QuestionPro. https://www.questionpro.com/blog/fr/reponse-volontaire-echantillon/</p>
+
+      <p>Statistique Canada. (2019). <em>Section 2. Échantillonnage stratifié.</em> https://www150.statcan.gc.ca/n1/pub/12-001-x/2019002/article/00006/02-fra.htm</p>
+
+      <p>Fleetwood, D. (2018, 13 mars). <em>L'échantillonnage en grappes : définition, méthode et exemples.</em> QuestionPro. https://www.questionpro.com/blog/fr/echantillonnage-en-grappes/</p>
+
+      <p>Mathéma-TIC. (2015, 15 septembre). <em>Échantillonnage systématique</em> [Vidéo]. YouTube. https://www.youtube.com/watch?v=GIZ16huvueY</p>
+    </section>
+
+  </main>
+
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
 </div>
 
 <script>
-// Open and close the sidebar on medium and small screens
+// Ouvrir et fermer la barre latérale
 function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
+  var sidebar = document.getElementById("mySidebar");
+  var overlay = document.getElementById("myOverlay");
+
+  if (sidebar) sidebar.style.display = "block";
+  if (overlay) overlay.style.display = "block";
 }
 
 function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
+  var sidebar = document.getElementById("mySidebar");
+  var overlay = document.getElementById("myOverlay");
+
+  if (sidebar) sidebar.style.display = "none";
+  if (overlay) overlay.style.display = "none";
 }
 
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
+// Modifier la barre supérieure lors du défilement
+window.onscroll = function() {
+  var top = document.getElementById("myTop");
+  var intro = document.getElementById("myIntro");
+
+  if (!top || !intro) return;
+
+  if (document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80) {
+    top.classList.add("w3-card-4", "w3-animate-opacity");
+    intro.classList.add("w3-show-inline-block");
   } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+    intro.classList.remove("w3-show-inline-block");
+    top.classList.remove("w3-card-4", "w3-animate-opacity");
   }
-}
-
+};
 </script>
-     
+
 </body>
-</html> 
+</html>
