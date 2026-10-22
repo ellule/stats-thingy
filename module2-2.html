@@ -1,98 +1,458 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>MDM4U</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Import MathJax -->
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-<style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-  padding: 16px;
-  font-weight: bold;
-}
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MDM4U - Les mesures de tendance centrale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      line-height: 1.7;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    .section-card {
+      padding: 24px;
+      margin-bottom: 24px;
+      border-radius: 8px;
+      background-color: #f5fafa;
+      border-left: 5px solid #009688;
+    }
+
+    .formula {
+      background-color: #e0f2f1;
+      padding: 16px;
+      border-radius: 6px;
+      text-align: center;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      aspect-ratio: 16 / 9;
+      margin: 20px auto;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    .resource-link {
+      display: inline-block;
+      margin: 6px 0;
+    }
+
+    h2, h3 {
+      line-height: 1.3;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Barre de navigation -->
+<div id="nav-placeholder"></div>
 
 <script>
-$(function(){
-  $("#nav-placeholder").load("nav.html");
-});
+  $(function() {
+    $("#nav-placeholder").load("nav.html");
+  });
 </script>
-<!--end of Navigation bar-->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
+  <!-- Barre supérieure -->
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+  </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">2.2 - Les Mesures de Tendance Centrale</h1>
-</header>
+  <!-- En-tête -->
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">2.2 - Les mesures de tendance centrale</h1>
+    <p>La moyenne, la médiane et le mode</p>
+  </header>
 
-<div class="w3-container" style="padding:32px">
+  <main class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-<h3>Moyenne</h3>
-  <p>\[ \frac{ \displaystyle \sum_{i=1}^{n} x_i}{n} \]</p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/9ZTnarPj0CM?si=-gS0Xlq2iw4-MCu3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/-Q2Mlz74VeY?si=WIZ4TR2YijeJSxCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
-  <h3>Médiane</h3>
-  <p>\[ \frac{n+1}{2} \]</p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/jo-8_prL6JE?si=g8fH-MimXQ-3qgKH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <h3>Mode</h3>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/_vnaTPYN3Ao?si=a-KLi4g4xSavuCDd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<p><a href="https://docs.google.com/spreadsheets/d/1r50CtVvA7eJflKXro_WxhsMv3t594ANwvbVu_X9SPtQ/edit?usp=sharing" target="_blank">Lien vers exercices</a></p>
-<p><a href="https://docs.google.com/document/d/1KVjExqteSwcw93ufYjLGFbQg3z6UiDUJRND6UuUIVTk/edit?usp=sharing" target="_blank">Lien vers exercices</a></p>
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+    <!-- Introduction -->
+    <section class="section-card">
+      <h2><i class="fa fa-line-chart"></i> Introduction</h2>
+      <p>
+        Les mesures de tendance centrale servent à représenter un ensemble de données
+        avec une valeur typique. Elles nous aident à mieux comprendre et à comparer
+        des données statistiques.
+      </p>
 
-</div>
+      <p>Il existe trois mesures principales :</p>
+      <ul>
+        <li><strong>La moyenne :</strong> la somme des valeurs divisée par le nombre de valeurs.</li>
+        <li><strong>La médiane :</strong> la valeur située au milieu des données ordonnées.</li>
+        <li><strong>Le mode :</strong> la valeur qui apparaît le plus souvent.</li>
+      </ul>
+    </section>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
+    <!-- Moyenne -->
+    <section class="section-card">
+      <h2>1. La moyenne</h2>
+
+      <p>
+        La moyenne arithmétique est obtenue en additionnant toutes les valeurs
+        et en divisant le résultat par le nombre total de valeurs.
+      </p>
+
+      <div class="formula">
+        \[
+          \bar{x}=\frac{\displaystyle\sum_{i=1}^{n}x_i}{n}
+        \]
+      </div>
+
+      <p>
+        Dans cette formule, \(x_i\) représente chaque valeur, \(n\) représente
+        le nombre total de valeurs et \(\bar{x}\) représente la moyenne.
+      </p>
+
+      <h3>Exemple</h3>
+      <p>Voici les notes de cinq élèves :</p>
+
+      <p class="w3-large w3-center">
+        2, 3, 3, 5, 7
+      </p>
+
+      <p>On additionne les cinq valeurs, puis on divise par 5 :</p>
+
+      <div class="formula">
+        \[
+          \bar{x}=\frac{2+3+3+5+7}{5}
+          =\frac{20}{5}=4
+        \]
+      </div>
+
+      <p><strong>La moyenne est 4.</strong></p>
+
+      <h3>Vidéo explicative</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/9ZTnarPj0CM"
+          title="Vidéo explicative sur la moyenne"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <h3>Autre ressource vidéo</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/-Q2Mlz74VeY"
+          title="Autre vidéo sur les mesures de tendance centrale"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p>
+        <strong>À retenir :</strong> la moyenne utilise toutes les valeurs,
+        mais elle peut être influencée par une valeur extrêmement élevée ou faible.
+      </p>
+    </section>
+
+    <!-- Médiane -->
+    <section class="section-card">
+      <h2>2. La médiane</h2>
+
+      <p>
+        La médiane est la valeur qui se trouve au milieu d'un ensemble de données
+        lorsque les valeurs sont placées en ordre croissant ou décroissant.
+      </p>
+
+      <p>
+        <strong>Étape 1 :</strong> placer les données en ordre.
+        <br>
+        <strong>Étape 2 :</strong> déterminer la position de la médiane.
+      </p>
+
+      <h3>Lorsque le nombre de valeurs est impair</h3>
+
+      <div class="formula">
+        \[
+          \text{Position de la médiane}=\frac{n+1}{2}
+        \]
+      </div>
+
+      <p>
+        Cette formule donne la position de la médiane, et non directement sa valeur.
+      </p>
+
+      <h3>Exemple avec un nombre impair de valeurs</h3>
+
+      <p>Les données sont déjà en ordre :</p>
+
+      <p class="w3-large w3-center">
+        2, 3, <strong>3</strong>, 5, 7
+      </p>
+
+      <p>
+        Il y a 5 valeurs. La position de la médiane est :
+      </p>
+
+      <div class="formula">
+        \[
+          \frac{5+1}{2}=3
+        \]
+      </div>
+
+      <p>
+        La médiane est donc la troisième valeur, soit <strong>3</strong>.
+      </p>
+
+      <h3>Lorsque le nombre de valeurs est pair</h3>
+
+      <p>
+        Lorsqu'il y a un nombre pair de valeurs, on calcule la moyenne des
+        deux valeurs centrales.
+      </p>
+
+      <p class="w3-large w3-center">
+        2, 4, <strong>6, 8</strong>, 10, 12
+      </p>
+
+      <div class="formula">
+        \[
+          \text{Médiane}=\frac{6+8}{2}=7
+        \]
+      </div>
+
+      <p><strong>La médiane est 7.</strong></p>
+
+      <h3>Vidéo explicative</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/jo-8_prL6JE"
+          title="Vidéo explicative sur la médiane"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p>
+        <strong>À retenir :</strong> il faut toujours ordonner les données
+        avant de déterminer la médiane. Elle est généralement moins influencée
+        par les valeurs extrêmes que la moyenne.
+      </p>
+    </section>
+
+    <!-- Mode -->
+    <section class="section-card">
+      <h2>3. Le mode</h2>
+
+      <p>
+        Le mode est la valeur qui apparaît le plus souvent dans un ensemble de données.
+      </p>
+
+      <h3>Exemple</h3>
+
+      <p class="w3-large w3-center">
+        2, 3, 3, 5, 7
+      </p>
+
+      <p>
+        La valeur 3 apparaît deux fois, alors que les autres valeurs apparaissent
+        une seule fois.
+      </p>
+
+      <p><strong>Le mode est 3.</strong></p>
+
+      <h3>Quelques possibilités</h3>
+
+      <ul>
+        <li><strong>Un mode :</strong> une seule valeur apparaît le plus souvent.</li>
+        <li><strong>Deux modes ou plus :</strong> plusieurs valeurs sont à égalité pour la fréquence la plus élevée.</li>
+        <li><strong>Aucun mode :</strong> aucune valeur n'apparaît plus souvent que les autres.</li>
+      </ul>
+
+      <h3>Vidéo explicative</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/_vnaTPYN3Ao"
+          title="Vidéo explicative sur le mode"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p>
+        <strong>À retenir :</strong> le mode est particulièrement utile pour
+        identifier la valeur la plus fréquente, comme la pointure la plus vendue
+        dans un magasin ou le moyen de transport le plus utilisé.
+      </p>
+    </section>
+
+    <!-- Comparaison -->
+    <section class="section-card">
+      <h2>4. Comparaison des trois mesures</h2>
+
+      <div class="w3-responsive">
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-theme">
+              <th>Mesure</th>
+              <th>Comment la trouver</th>
+              <th>Point important</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Moyenne</strong></td>
+              <td>Additionner les valeurs et diviser par leur nombre.</td>
+              <td>Sensible aux valeurs extrêmes.</td>
+            </tr>
+            <tr>
+              <td><strong>Médiane</strong></td>
+              <td>Ordonner les données et trouver le milieu.</td>
+              <td>Moins influencée par les valeurs extrêmes.</td>
+            </tr>
+            <tr>
+              <td><strong>Mode</strong></td>
+              <td>Repérer la valeur la plus fréquente.</td>
+              <td>Peut avoir plusieurs modes ou aucun mode.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Exemple récapitulatif</h3>
+
+      <p>Pour les données suivantes :</p>
+
+      <p class="w3-large w3-center">
+        2, 3, 3, 5, 7
+      </p>
+
+      <ul>
+        <li><strong>Moyenne :</strong> 4</li>
+        <li><strong>Médiane :</strong> 3</li>
+        <li><strong>Mode :</strong> 3</li>
+      </ul>
+
+      <p>
+        Les trois mesures décrivent le même ensemble de données, mais chacune
+        apporte une information différente.
+      </p>
+    </section>
+
+    <!-- Exercices -->
+    <section class="section-card">
+      <h2><i class="fa fa-pencil"></i> 5. Exercices pratiques</h2>
+
+      <p>
+        Utilise les liens ci-dessous pour pratiquer le calcul de la moyenne,
+        de la médiane et du mode.
+      </p>
+
+      <p>
+        <a class="w3-button w3-theme resource-link"
+           href="https://docs.google.com/spreadsheets/d/1r50CtVvA7eJflKXro_WxhsMv3t594ANwvbVu_X9SPtQ/edit?usp=sharing"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fa fa-table"></i> Ouvrir les exercices
+        </a>
+      </p>
+
+      <p>
+        <a class="w3-button w3-theme resource-link"
+           href="https://docs.google.com/document/d/1KVjExqteSwcw93ufYjLGFbQg3z6UiDUJRND6UuUIVTk/edit?usp=sharing"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fa fa-file-text-o"></i> Ouvrir le document d'exercices
+        </a>
+      </p>
+    </section>
+
+    <!-- Résumé -->
+    <section class="w3-panel w3-pale-green w3-leftbar w3-border-green"
+             style="padding:20px; border-radius:6px;">
+      <h2>À retenir</h2>
+      <ul>
+        <li>La moyenne représente la somme des valeurs divisée par leur nombre.</li>
+        <li>La médiane représente la valeur centrale des données ordonnées.</li>
+        <li>Le mode représente la valeur la plus fréquente.</li>
+        <li>Le choix de la mesure dépend des données et de ce qu'on veut comprendre.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
 </div>
 
 <script>
-// Open and close the sidebar on medium and small screens
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
-  } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+  // Ouvrir et fermer le menu sur les petits écrans
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
   }
-}
 
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+  }
+
+  // Modifier la barre supérieure lorsque la page défile
+  window.onscroll = function() {
+    myFunction();
+  };
+
+  function myFunction() {
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+      document.getElementById("myTop").classList.add(
+        "w3-card-4", "w3-animate-opacity"
+      );
+      document.getElementById("myIntro").classList.add(
+        "w3-show-inline-block"
+      );
+    } else {
+      document.getElementById("myIntro").classList.remove(
+        "w3-show-inline-block"
+      );
+      document.getElementById("myTop").classList.remove(
+        "w3-card-4", "w3-animate-opacity"
+      );
+    }
+  }
 </script>
-     
+
 </body>
-</html> 
+</html>
