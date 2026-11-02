@@ -1,311 +1,460 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 3.1 - Les probabilités expérimentales</title>
+  <meta charset="UTF-8">
+  <title>MDM4U - Les probabilités expérimentales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-    :root {
-        --teal: #138f91;
-        --dark-teal: #086568;
-        --light-teal: #e5f5f4;
-        --pale: #f4fbfa;
-        --text: #263b3c;
-    }
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        background: var(--pale);
-        color: var(--text);
-        margin: 0;
-        padding: 30px 16px;
-        line-height: 1.7;
+      font-family: "Roboto", sans-serif;
+      line-height: 1.7;
     }
 
-    .container {
-        max-width: 900px;
-        margin: auto;
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
     }
 
-    .header {
-        background: linear-gradient(135deg, #138f91, #086568);
-        color: white;
-        padding: 35px;
-        border-radius: 16px;
-        margin-bottom: 28px;
+    .section-card {
+      background: #f5fafa;
+      border-left: 5px solid #009688;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
     }
 
-    .header h1 {
-        margin: 0;
-        font-size: 30px;
+    .distribution-card {
+      background: white;
+      border: 1px solid #d5e5e3;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
     }
 
-    .header p {
-        margin-bottom: 0;
-        opacity: 0.95;
+    .formula-box {
+      background: #e0f2f1;
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+      margin: 18px 0;
     }
 
-    .section {
-        background: white;
-        padding: 25px;
-        border-radius: 14px;
-        margin-bottom: 22px;
-        border: 1px solid #d9ebea;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    .sheet-link {
+      display: inline-block;
+      background: #009688;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
     }
 
-    h2 {
-        color: var(--dark-teal);
-        margin-top: 0;
-        border-bottom: 2px solid var(--light-teal);
-        padding-bottom: 10px;
+    .sheet-link:hover {
+      background: #00796b;
+      color: white;
     }
 
-    h3 {
-        color: var(--teal);
+    .result-box {
+      background: #f1f8f7;
+      border: 1px solid #b7d7d2;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 16px;
     }
 
-    .situation {
-        background: var(--light-teal);
-        padding: 17px;
-        border-radius: 10px;
-        margin: 15px 0;
+    html {
+      scroll-behavior: smooth;
     }
-
-    .situation strong {
-        color: var(--dark-teal);
-    }
-
-    .link-button {
-        display: inline-block;
-        background: var(--teal);
-        color: white;
-        text-decoration: none;
-        padding: 11px 19px;
-        border-radius: 8px;
-        font-weight: bold;
-        margin-top: 10px;
-        transition: 0.2s;
-    }
-
-    .link-button:hover {
-        background: var(--dark-teal);
-    }
-
-    .note {
-        background: #fff8e6;
-        border-left: 4px solid #e6b84c;
-        padding: 14px;
-        border-radius: 6px;
-        margin-top: 15px;
-    }
-
-    .footer {
-        text-align: center;
-        color: #668080;
-        padding: 20px;
-        font-size: 14px;
-    }
-
-    @media(max-width: 600px) {
-        .header h1 {
-            font-size: 24px;
-        }
-
-        .section {
-            padding: 18px;
-        }
-    }
-</style>
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- Barre de navigation -->
+<div id="nav-placeholder"></div>
 
-    <div class="header">
-        <h1>Module 3.1 - Les probabilités expérimentales</h1>
-        <p>Jour 3 | Lundi 2 novembre</p>
-        <p>Simulations et applications des probabilités expérimentales avec Google Sheets.</p>
-    </div>
+<script>
+  $(function() {
+    $("#nav-placeholder").load("nav.html");
+  });
+</script>
 
-    <div class="section">
-        <h2>📚 Le devoir</h2>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
-        <p>
-            Pour cette activité, je dois créer des simulations dans Google Sheets
-            afin d'étudier différentes situations de probabilités expérimentales.
-            Chaque simulation est présentée dans un onglet différent du même fichier.
-        </p>
+<div class="w3-main" style="margin-left:250px;">
 
-        <p>
-            J'ai utilisé 10 000 essais pour chaque simulation afin d'obtenir
-            des résultats plus fiables.
-        </p>
+  <!-- Barre supérieure -->
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+  </div>
 
-        <p>
-            <strong>Fichier Google Sheets :</strong>
-        </p>
+  <!-- En-tête -->
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">3.1 - Les probabilités expérimentales</h1>
+    <p>Utiliser des simulations pour estimer des probabilités à partir d'essais aléatoires</p>
+    <p><i class="fa fa-calendar"></i> Lundi 2 novembre 2026</p>
+  </header>
 
-        <a class="link-button"
-           href="COLLE_ICI_LE_LIEN_DE_TON_FICHIER_GOOGLE_SHEETS"
-           target="_blank">
-           📊 Ouvrir mon fichier Google Sheets
-        </a>
-    </div>
+  <main class="w3-container" style="padding:32px">
 
-    <div class="section">
-        <h2>☕ Mise en situation 2 - Le café</h2>
+    <!-- Introduction -->
+    <section class="section-card">
+      <h2><i class="fa fa-flask"></i> Introduction</h2>
 
-        <div class="situation">
-            <strong>Énoncé :</strong>
-            <p>
-                Nous avons simulé 5 semaines pendant lesquelles une personne
-                a payé le café; les résultats étaient probablement différents
-                d’une semaine à l’autre. Pour obtenir des résultats plus sûrs,
-                nous devons effectuer un plus grand nombre d’essais.
-                Des fonctions informatiques dans les logiciels tels que
-                Google Sheets peuvent être utiles pour faire de telles
-                simulations de probabilités expérimentales.
-            </p>
-        </div>
+      <p>
+        La probabilité expérimentale représente la chance qu'un événement
+        se produise selon les résultats d'une expérience ou d'une simulation.
+        Elle est calculée en observant combien de fois un événement se produit
+        pendant un certain nombre d'essais.
+      </p>
 
-        <p>
-            J'ai effectué 10 000 simulations de cinq jours afin d'obtenir
-            une estimation plus fiable de la probabilité étudiée.
-        </p>
+      <p>
+        Contrairement à une probabilité théorique, qui est calculée à partir
+        des possibilités, la probabilité expérimentale dépend des résultats
+        obtenus pendant les essais.
+      </p>
 
-        <a class="link-button"
-           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_2"
-           target="_blank">
-           Voir la simulation 2 →
-        </a>
-    </div>
+      <div class="formula-box">
+        <h3>Formule de la probabilité expérimentale</h3>
+        \[
+        P(E)=\frac{\text{Nombre de succès}}{\text{Nombre total d'essais}}
+        \]
+      </div>
 
-    <div class="section">
-        <h2>👶 Mise en situation 3 - Quatre enfants</h2>
+      <p>
+        Plus on effectue d'essais, plus les résultats expérimentaux ont
+        tendance à se rapprocher de la probabilité théorique. Les tableurs,
+        comme Google Sheets, permettent de faire rapidement un grand nombre
+        de simulations.
+      </p>
+    </section>
 
-        <div class="situation">
-            <strong>Énoncé :</strong>
-            <p>
-                Supposons qu’une famille désire avoir quatre enfants.
-                Effectue une simulation pour évaluer la probabilité que
-                trois filles (0) naîtront successivement ensuite un garçons (1).
-            </p>
-        </div>
+    <!-- Situation 1 -->
+    <section class="distribution-card">
+      <h2>1. Première mise en situation</h2>
 
-        <p>
-            Pour cette simulation, j'ai utilisé les valeurs suivantes :
-        </p>
+      <p>
+        Cette première mise en situation a été réalisée en classe.
+        Selon les indications dans le document, aucune autre tâche
+        ou simulation n'était nécessaire pour cette situation.
+      </p>
+
+      <div class="result-box">
+        <strong>Statut :</strong> Activité complétée en classe.
+        Aucune simulation supplémentaire à effectuer.
+      </div>
+
+      <a class="sheet-link"
+         href="https://docs.google.com/spreadsheets/d/1HBzXRF2a8dS_O1CZFBS-xDhVhnzmuNnRmh7GIEgnTPE/edit?gid=1537359639#gid=1537359639"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-table"></i> Voir la situation 1 dans Google Sheets
+      </a>
+    </section>
+
+    <!-- Situation 2 -->
+    <section class="distribution-card">
+      <h2>2. Mise en situation 2 - Payer le café</h2>
+
+      <p>
+        Nous avons simulé 5 semaines pendant lesquelles une personne a payé
+        le café; les résultats étaient probablement différents d’une semaine
+        à l’autre. Pour obtenir des résultats plus sûrs, nous devons effectuer
+        un plus grand nombre d’essais. Des fonctions informatiques dans les
+        logiciels tels que Google Sheets peuvent être utiles pour faire de
+        telles simulations de probabilités expérimentales.
+      </p>
+
+      <h3>La simulation</h3>
+
+      <p>
+        Dans cette simulation, nous avons utilisé Google Sheets pour représenter
+        les résultats de cinq jours pendant plusieurs essais. Chaque journée
+        reçoit une valeur aléatoire de 0 ou de 1. Nous avons ensuite vérifié
+        les essais où les cinq journées avaient obtenu la valeur 0.
+      </p>
+
+      <p>
+        En répétant cette simulation plusieurs milliers de fois, nous pouvons
+        observer la fréquence de cet événement et estimer sa probabilité
+        expérimentale.
+      </p>
+
+      <a class="sheet-link"
+         href="https://docs.google.com/spreadsheets/d/1HBzXRF2a8dS_O1CZFBS-xDhVhnzmuNnRmh7GIEgnTPE/edit?gid=0#gid=0"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-table"></i> Voir la simulation 2
+      </a>
+
+      <div class="result-box">
+        <strong>Résultat expérimental :</strong>
+        À observer dans le tableau Google Sheets.
+      </div>
+    </section>
+
+    <!-- Situation 3 -->
+    <section class="distribution-card">
+      <h2>3. Mise en situation 3 - Avoir trois filles et ensuite un garçon</h2>
+
+      <p>
+        Supposons qu’une famille désire avoir quatre enfants. Effectue une
+        simulation pour évaluer la probabilité que trois filles (0) naîtront
+        successivement ensuite un garçons (1).
+      </p>
+
+      <h3>La simulation</h3>
+
+      <p>
+        Pour cette simulation, nous avons représenté chaque enfant avec une
+        valeur aléatoire :
+      </p>
+
+      <ul>
+        <li><strong>0 :</strong> une fille</li>
+        <li><strong>1 :</strong> un garçon</li>
+      </ul>
+
+      <p>
+        Chaque essai représente une famille de quatre enfants. Nous cherchons
+        précisément la séquence suivante : 0, 0, 0, 1. La simulation permet
+        de compter combien de fois cette séquence apparaît.
+      </p>
+
+      <h3>Comparaison théorique</h3>
+
+      <p>
+        Si on suppose que chaque enfant a une chance égale d'être une fille
+        ou un garçon et que les naissances sont indépendantes, la probabilité
+        théorique est :
+      </p>
+
+      <div class="formula-box">
+        \[
+        P(0001)=\frac{1}{2}\times\frac{1}{2}\times
+        \frac{1}{2}\times\frac{1}{2}
+        =\frac{1}{16}=6,25\%
+        \]
+      </div>
+
+      <a class="sheet-link"
+         href="https://docs.google.com/spreadsheets/d/1HBzXRF2a8dS_O1CZFBS-xDhVhnzmuNnRmh7GIEgnTPE/edit?gid=395051716#gid=395051716"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-table"></i> Voir la simulation 3
+      </a>
+
+      <div class="result-box">
+        <strong>Résultat expérimental :</strong>
+        À comparer avec la probabilité théorique de 6,25 %.
+      </div>
+    </section>
+
+    <!-- Situation 4 -->
+    <section class="distribution-card">
+      <h2>4. Mise en situation 4 - Avoir au moins une fille</h2>
+
+      <p>
+        Supposons qu’une famille désire avoir quatre enfants. Effectue une
+        simulation pour évaluer la probabilité que cette famille ait au moins
+        une fille.
+      </p>
+
+      <h3>La simulation</h3>
+
+      <p>
+        Nous utilisons encore les valeurs suivantes pour représenter les enfants :
+      </p>
+
+      <ul>
+        <li><strong>0 :</strong> une fille</li>
+        <li><strong>1 :</strong> un garçon</li>
+      </ul>
+
+      <p>
+        Chaque essai représente une famille de quatre enfants. Cette fois,
+        nous cherchons toutes les familles qui ont au moins une fille.
+        Cela signifie qu'il suffit d'obtenir au moins un 0 parmi les quatre
+        enfants pour que l'essai soit considéré comme un succès.
+      </p>
+
+      <h3>Comparaison théorique</h3>
+
+      <p>
+        Il est plus facile de calculer la probabilité en trouvant d'abord
+        la chance d'avoir quatre garçons, puis en soustrayant ce résultat
+        de 1.
+      </p>
+
+      <div class="formula-box">
+        \[
+        P(\text{au moins une fille})=1-\left(\frac{1}{2}\right)^4
+        \]
+
+        \[
+        =1-\frac{1}{16}=\frac{15}{16}=93,75\%
+        \]
+      </div>
+
+      <a class="sheet-link"
+         href="https://docs.google.com/spreadsheets/d/1HBzXRF2a8dS_O1CZFBS-xDhVhnzmuNnRmh7GIEgnTPE/edit?gid=1863790246#gid=1863790246"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-table"></i> Voir la simulation 4
+      </a>
+
+      <div class="result-box">
+        <strong>Résultat expérimental :</strong>
+        À comparer avec la probabilité théorique de 93,75 %.
+      </div>
+    </section>
+
+    <!-- Situation 5 -->
+    <section class="distribution-card">
+      <h2>5. Mise en situation 5 - La moyenne au bâton</h2>
+
+      <p>
+        Supposons qu’une personne qui joue au baseball ait une moyenne au
+        bâton (batting average) de (0.320). Qu’est-ce que cette valeur veut
+        dire ? Effectue une simulation pour évaluer la probabilité qu’il
+        réussisse trois coups consécutifs.
+      </p>
+
+      <h3>Que signifie 0,320 ?</h3>
+
+      <p>
+        Une moyenne au bâton de 0,320 signifie que le joueur réussit environ
+        32 % de ses présences au bâton. Autrement dit, il obtient un coup sûr
+        environ 32 fois sur 100 présences au bâton.
+      </p>
+
+      <h3>La simulation</h3>
+
+      <p>
+        Pour simuler les résultats, chaque présence au bâton a une probabilité
+        de 0,320 de réussir un coup sûr. Nous avons simulé trois présences
+        consécutives et vérifié si le joueur obtenait un coup sûr à chaque fois.
+      </p>
+
+      <p>
+        Un essai est considéré comme un succès seulement si les trois résultats
+        sont des coups sûrs.
+      </p>
+
+      <h3>Comparaison théorique</h3>
+
+      <p>
+        En supposant que les trois présences au bâton sont indépendantes,
+        nous multiplions la probabilité de réussite par elle-même trois fois.
+      </p>
+
+      <div class="formula-box">
+        \[
+        P(\text{trois coups sûrs})=0,320^3
+        \]
+
+        \[
+        =0,032768=3,2768\%
+        \]
+      </div>
+
+      <a class="sheet-link"
+         href="https://docs.google.com/spreadsheets/d/1HBzXRF2a8dS_O1CZFBS-xDhVhnzmuNnRmh7GIEgnTPE/edit?gid=65867982#gid=65867982"
+         target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-table"></i> Voir la simulation 5
+      </a>
+
+      <div class="result-box">
+        <strong>Résultat expérimental :</strong>
+        À comparer avec la probabilité théorique d'environ 3,28 %.
+      </div>
+    </section>
+
+    <!-- Comparaison -->
+    <section class="section-card">
+      <h2><i class="fa fa-bar-chart"></i> Comparaison des probabilités</h2>
+
+      <p>
+        Les probabilités théoriques nous donnent une valeur de référence
+        calculée mathématiquement. Les probabilités expérimentales sont
+        obtenues à partir des résultats de nos simulations.
+      </p>
+
+      <p>
+        En général, lorsque le nombre d'essais augmente, les résultats
+        expérimentaux ont tendance à se rapprocher des probabilités théoriques.
+        Cependant, ils ne sont pas nécessairement identiques, puisque les
+        simulations utilisent des résultats aléatoires.
+      </p>
+
+      <div class="distribution-card">
+        <h3>Valeurs théoriques de référence</h3>
 
         <ul>
-            <li>0 = Fille</li>
-            <li>1 = Garçon</li>
+          <li><strong>Situation 3 :</strong> 6,25 %</li>
+          <li><strong>Situation 4 :</strong> 93,75 %</li>
+          <li><strong>Situation 5 :</strong> environ 3,28 %</li>
         </ul>
 
         <p>
-            Le but est de déterminer la probabilité d'obtenir exactement
-            trois filles suivies d'un garçon (0, 0, 0, 1).
+          La situation 2 n'est pas incluse dans cette liste, car sa probabilité
+          théorique dépend de l'interprétation des résultats de cette simulation.
         </p>
+      </div>
+    </section>
 
-        <a class="link-button"
-           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_3"
-           target="_blank">
-           Voir la simulation 3 →
-        </a>
-    </div>
+    <!-- Conclusion -->
+    <section class="section-card">
+      <h2><i class="fa fa-lightbulb-o"></i> Conclusion et réflexion</h2>
 
-    <div class="section">
-        <h2>👨‍👩‍👧‍👦 Mise en situation 4 - Au moins une fille</h2>
+      <p>
+        Dans ce module, j'ai appris que les probabilités expérimentales
+        permettent d'estimer les chances qu'un événement se produise en
+        effectuant plusieurs essais. Google Sheets est un outil utile pour
+        réaliser rapidement un grand nombre de simulations.
+      </p>
 
-        <div class="situation">
-            <strong>Énoncé :</strong>
-            <p>
-                Supposons qu’une famille désire avoir quatre enfants.
-                Effectue une simulation pour évaluer la probabilité que
-                cette famille ait au moins une fille.
-            </p>
-        </div>
+      <p>
+        J'ai aussi appris que les résultats peuvent changer d'une simulation
+        à l'autre. En augmentant le nombre d'essais, les résultats ont
+        généralement tendance à devenir plus stables et à se rapprocher
+        de la probabilité théorique.
+      </p>
+    </section>
 
-        <p>
-            J'ai simulé 10 000 familles de quatre enfants en utilisant
-            les mêmes valeurs :
-        </p>
+  </main>
 
-        <ul>
-            <li>0 = Fille</li>
-            <li>1 = Garçon</li>
-        </ul>
-
-        <p>
-            Une simulation est considérée comme un succès lorsqu'au moins
-            un des quatre enfants est une fille.
-        </p>
-
-        <a class="link-button"
-           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_4"
-           target="_blank">
-           Voir la simulation 4 →
-        </a>
-    </div>
-
-    <div class="section">
-        <h2>⚾ Mise en situation 5 - La moyenne au bâton</h2>
-
-        <div class="situation">
-            <strong>Énoncé :</strong>
-            <p>
-                Supposons qu’une personne qui joue au baseball ait une
-                moyenne au bâton (batting average) de (0.320).
-            </p>
-
-            <p><strong>Qu’est-ce que cette valeur veut dire ?</strong></p>
-
-            <p>
-                Effectue une simulation pour évaluer la probabilité qu’il
-                réussisse trois coups consécutifs.
-            </p>
-        </div>
-
-        <h3>Comprendre la moyenne au bâton</h3>
-
-        <p>
-            Une moyenne au bâton de 0,320 signifie que le joueur réussit
-            environ 32 % de ses présences au bâton, soit environ 32 réussites
-            sur 100.
-        </p>
-
-        <p>
-            Pour ma simulation, j'ai utilisé une probabilité de réussite
-            de 0,320 pour chaque coup. Un succès est obtenu lorsque les
-            trois coups sont réussis consécutivement.
-        </p>
-
-        <a class="link-button"
-           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_5"
-           target="_blank">
-           Voir la simulation 5 →
-        </a>
-    </div>
-
-    <div class="section">
-        <h2>💡 Réflexion</h2>
-
-        <p>
-            Cette activité m'a permis de pratiquer les probabilités
-            expérimentales en utilisant Google Sheets. J'ai appris comment
-            les fonctions informatiques peuvent générer des résultats
-            aléatoires et comment un grand nombre d'essais peut aider
-            à obtenir une estimation plus fiable d'une probabilité.
-        </p>
-    </div>
-
-    <div class="footer">
-        MDM4U | Module 3.1 | Les probabilités expérimentales
-    </div>
+  <!-- Pied de page -->
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
 
 </div>
+
+<!-- Fonctions de navigation -->
+<script>
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+  }
+
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
