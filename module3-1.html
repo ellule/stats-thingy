@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3.1 - Les probabilités expérimentales</title>
 
+<style>
+    :root {
+        --teal: #138f91;
+        --dark-teal: #086568;
+        --light-teal: #e5f5f4;
+        --pale: #f4fbfa;
+        --text: #263b3c;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: var(--pale);
+        color: var(--text);
+        margin: 0;
+        padding: 30px 16px;
+        line-height: 1.7;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #138f91, #086568);
+        color: white;
+        padding: 35px;
+        border-radius: 16px;
+        margin-bottom: 28px;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 30px;
+    }
+
+    .header p {
+        margin-bottom: 0;
+        opacity: 0.95;
+    }
+
+    .section {
+        background: white;
+        padding: 25px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+        border: 1px solid #d9ebea;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    }
+
+    h2 {
+        color: var(--dark-teal);
+        margin-top: 0;
+        border-bottom: 2px solid var(--light-teal);
+        padding-bottom: 10px;
+    }
+
+    h3 {
+        color: var(--teal);
+    }
+
+    .situation {
+        background: var(--light-teal);
+        padding: 17px;
+        border-radius: 10px;
+        margin: 15px 0;
+    }
+
+    .situation strong {
+        color: var(--dark-teal);
+    }
+
+    .link-button {
+        display: inline-block;
+        background: var(--teal);
+        color: white;
+        text-decoration: none;
+        padding: 11px 19px;
+        border-radius: 8px;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: 0.2s;
+    }
+
+    .link-button:hover {
+        background: var(--dark-teal);
+    }
+
+    .note {
+        background: #fff8e6;
+        border-left: 4px solid #e6b84c;
+        padding: 14px;
+        border-radius: 6px;
+        margin-top: 15px;
+    }
+
+    .footer {
+        text-align: center;
+        color: #668080;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    @media(max-width: 600px) {
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .section {
+            padding: 18px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Module 3.1 - Les probabilités expérimentales</h1>
+        <p>Jour 3 | Lundi 2 novembre</p>
+        <p>Simulations et applications des probabilités expérimentales avec Google Sheets.</p>
+    </div>
+
+    <div class="section">
+        <h2>📚 Le devoir</h2>
+
+        <p>
+            Pour cette activité, je dois créer des simulations dans Google Sheets
+            afin d'étudier différentes situations de probabilités expérimentales.
+            Chaque simulation est présentée dans un onglet différent du même fichier.
+        </p>
+
+        <p>
+            J'ai utilisé 10 000 essais pour chaque simulation afin d'obtenir
+            des résultats plus fiables.
+        </p>
+
+        <p>
+            <strong>Fichier Google Sheets :</strong>
+        </p>
+
+        <a class="link-button"
+           href="COLLE_ICI_LE_LIEN_DE_TON_FICHIER_GOOGLE_SHEETS"
+           target="_blank">
+           📊 Ouvrir mon fichier Google Sheets
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>☕ Mise en situation 2 - Le café</h2>
+
+        <div class="situation">
+            <strong>Énoncé :</strong>
+            <p>
+                Nous avons simulé 5 semaines pendant lesquelles une personne
+                a payé le café; les résultats étaient probablement différents
+                d’une semaine à l’autre. Pour obtenir des résultats plus sûrs,
+                nous devons effectuer un plus grand nombre d’essais.
+                Des fonctions informatiques dans les logiciels tels que
+                Google Sheets peuvent être utiles pour faire de telles
+                simulations de probabilités expérimentales.
+            </p>
+        </div>
+
+        <p>
+            J'ai effectué 10 000 simulations de cinq jours afin d'obtenir
+            une estimation plus fiable de la probabilité étudiée.
+        </p>
+
+        <a class="link-button"
+           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_2"
+           target="_blank">
+           Voir la simulation 2 →
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>👶 Mise en situation 3 - Quatre enfants</h2>
+
+        <div class="situation">
+            <strong>Énoncé :</strong>
+            <p>
+                Supposons qu’une famille désire avoir quatre enfants.
+                Effectue une simulation pour évaluer la probabilité que
+                trois filles (0) naîtront successivement ensuite un garçons (1).
+            </p>
+        </div>
+
+        <p>
+            Pour cette simulation, j'ai utilisé les valeurs suivantes :
+        </p>
+
+        <ul>
+            <li>0 = Fille</li>
+            <li>1 = Garçon</li>
+        </ul>
+
+        <p>
+            Le but est de déterminer la probabilité d'obtenir exactement
+            trois filles suivies d'un garçon (0, 0, 0, 1).
+        </p>
+
+        <a class="link-button"
+           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_3"
+           target="_blank">
+           Voir la simulation 3 →
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>👨‍👩‍👧‍👦 Mise en situation 4 - Au moins une fille</h2>
+
+        <div class="situation">
+            <strong>Énoncé :</strong>
+            <p>
+                Supposons qu’une famille désire avoir quatre enfants.
+                Effectue une simulation pour évaluer la probabilité que
+                cette famille ait au moins une fille.
+            </p>
+        </div>
+
+        <p>
+            J'ai simulé 10 000 familles de quatre enfants en utilisant
+            les mêmes valeurs :
+        </p>
+
+        <ul>
+            <li>0 = Fille</li>
+            <li>1 = Garçon</li>
+        </ul>
+
+        <p>
+            Une simulation est considérée comme un succès lorsqu'au moins
+            un des quatre enfants est une fille.
+        </p>
+
+        <a class="link-button"
+           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_4"
+           target="_blank">
+           Voir la simulation 4 →
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>⚾ Mise en situation 5 - La moyenne au bâton</h2>
+
+        <div class="situation">
+            <strong>Énoncé :</strong>
+            <p>
+                Supposons qu’une personne qui joue au baseball ait une
+                moyenne au bâton (batting average) de (0.320).
+            </p>
+
+            <p><strong>Qu’est-ce que cette valeur veut dire ?</strong></p>
+
+            <p>
+                Effectue une simulation pour évaluer la probabilité qu’il
+                réussisse trois coups consécutifs.
+            </p>
+        </div>
+
+        <h3>Comprendre la moyenne au bâton</h3>
+
+        <p>
+            Une moyenne au bâton de 0,320 signifie que le joueur réussit
+            environ 32 % de ses présences au bâton, soit environ 32 réussites
+            sur 100.
+        </p>
+
+        <p>
+            Pour ma simulation, j'ai utilisé une probabilité de réussite
+            de 0,320 pour chaque coup. Un succès est obtenu lorsque les
+            trois coups sont réussis consécutivement.
+        </p>
+
+        <a class="link-button"
+           href="COLLE_ICI_LE_LIEN_DE_L_ONGLET_5"
+           target="_blank">
+           Voir la simulation 5 →
+        </a>
+    </div>
+
+    <div class="section">
+        <h2>💡 Réflexion</h2>
+
+        <p>
+            Cette activité m'a permis de pratiquer les probabilités
+            expérimentales en utilisant Google Sheets. J'ai appris comment
+            les fonctions informatiques peuvent générer des résultats
+            aléatoires et comment un grand nombre d'essais peut aider
+            à obtenir une estimation plus fiable d'une probabilité.
+        </p>
+    </div>
+
+    <div class="footer">
+        MDM4U | Module 3.1 | Les probabilités expérimentales
+    </div>
+
+</div>
+
+</body>
+</html>
