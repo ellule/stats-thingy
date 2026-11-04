@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MDM4U - La probabilité théorique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      line-height: 1.7;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    .section-card {
+      background: #f5fafa;
+      border-left: 5px solid #009688;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .distribution-card {
+      background: white;
+      border: 1px solid #d5e5e3;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .video-link {
+      display: inline-block;
+      margin: 6px 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Barre de navigation -->
+<div id="nav-placeholder"></div>
+
+<script>
+  $(function() {
+    $("#nav-placeholder").load("nav.html");
+  });
+</script>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+  <!-- Barre supérieure -->
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+  </div>
+
+  <!-- En-tête -->
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">3.2 - La probabilité théorique</h1>
+    <p>Calculer la probabilité d'un événement à partir des résultats possibles</p>
+    <p><i class="fa fa-calendar"></i> Mardi 3 novembre 2026</p>
+  </header>
+
+  <main class="w3-container" style="padding:32px">
+
+    <!-- Introduction -->
+    <section class="section-card">
+      <h2><i class="fa fa-calculator"></i> Introduction</h2>
+
+      <p>
+        La probabilité théorique permet de déterminer les chances qu'un
+        événement se produise en utilisant les résultats possibles.
+        Contrairement à la probabilité expérimentale, elle ne dépend pas
+        d'une expérience ou d'une simulation.
+      </p>
+
+      <p>
+        Pour la calculer, on divise le nombre de résultats favorables
+        par le nombre total de résultats possibles.
+      </p>
+    </section>
+
+    <!-- Formule -->
+    <section class="distribution-card">
+      <h2>1. La formule de la probabilité théorique</h2>
+
+      <p>
+        Lorsque tous les résultats ont la même chance de se produire,
+        on utilise la formule suivante :
+      </p>
+
+      <div class="w3-panel w3-pale-teal w3-center w3-padding-24">
+        <h3>
+          \[
+          P(A)=\frac{\text{nombre de résultats favorables}}
+          {\text{nombre total de résultats possibles}}
+          \]
+        </h3>
+      </div>
+
+      <p><strong>À retenir :</strong></p>
+
+      <ul>
+        <li><strong>P(A)</strong> représente la probabilité de l'événement A.</li>
+        <li>Les résultats favorables sont ceux qui correspondent à l'événement recherché.</li>
+        <li>Les résultats possibles représentent toutes les options possibles.</li>
+      </ul>
+
+      <p>
+        Une probabilité peut être exprimée sous forme de fraction,
+        de nombre décimal ou de pourcentage.
+      </p>
+    </section>
+
+    <!-- Exemple -->
+    <section class="distribution-card">
+      <h2>2. Exemple simple</h2>
+
+      <p>
+        On lance un dé à six faces. Quelle est la probabilité d'obtenir
+        un 4 ?
+      </p>
+
+      <p>
+        Il y a un seul résultat favorable : obtenir un 4.
+        Il y a six résultats possibles : 1, 2, 3, 4, 5 et 6.
+      </p>
+
+      <div class="w3-panel w3-pale-teal w3-padding">
+        <p><strong>Calcul :</strong></p>
+        \[
+        P(4)=\frac{1}{6}
+        \]
+
+        \[
+        P(4)\approx 0,167 = 16,7\%
+        \]
+      </div>
+
+      <p>
+        La probabilité d'obtenir un 4 est donc de 1 sur 6,
+        ou environ 16,7 %.
+      </p>
+    </section>
+
+    <!-- Comparaison -->
+    <section class="section-card">
+      <h2>3. Probabilité théorique et expérimentale</h2>
+
+      <p>
+        La probabilité théorique est calculée à partir des résultats possibles.
+        La probabilité expérimentale est calculée à partir des résultats
+        observés pendant une expérience.
+      </p>
+
+      <div class="w3-responsive">
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-theme">
+              <th>Probabilité théorique</th>
+              <th>Probabilité expérimentale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Calculée avec les résultats possibles.</td>
+              <td>Calculée avec les résultats observés.</td>
+            </tr>
+            <tr>
+              <td>Ne nécessite pas de faire une expérience.</td>
+              <td>Utilise les données d'une expérience ou d'une simulation.</td>
+            </tr>
+            <tr>
+              <td>Donne une valeur prévue.</td>
+              <td>Peut varier selon les résultats obtenus.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Travail -->
+    <section class="section-card">
+      <h2><i class="fa fa-pencil"></i> 4. Exercices 3.2</h2>
+
+      <p>
+        J'ai complété les exercices 3.2 à la main, avec du papier et un crayon.
+        Mes réponses et mes calculs sont dans le document numérisé ci-dessous.
+      </p>
+
+      <div class="w3-center w3-padding-16">
+        <a href="exercices_3_2_probabilite_theorique.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="w3-button w3-teal w3-round-large w3-padding-large">
+          <i class="fa fa-file-pdf-o"></i>
+          Voir mes exercices 3.2
+        </a>
+      </div>
+    </section>
+
+    <!-- Ressources -->
+    <section class="section-card">
+      <h2><i class="fa fa-book"></i> 5. Ressources du module</h2>
+
+      <div class="distribution-card">
+        <h3>Solutions possibles pour les exercices 3.1</h3>
+        <p>
+          Document pour vérifier les réponses des exercices précédents.
+        </p>
+        <a href="https://docs.google.com/spreadsheets/d/184mO4UxZulNeV7j6rRwGNuG_VC3ac2ocKLw1areLb0w/edit?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-google"></i> Ouvrir les solutions 3.1
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Notes de cours 3.2</h3>
+        <p>Notes trouées pour accompagner la leçon.</p>
+        <a href="https://docs.google.com/document/d/10-gA9Ny0IoO7G41_aRLrNM-X8VAMupSgtVUlYpxG1jo/edit?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-file-text-o"></i> Ouvrir les notes de cours
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Présentation 3.2 - La probabilité théorique</h3>
+        <p>Diapositives utilisées pendant la leçon.</p>
+        <a href="https://docs.google.com/presentation/d/1BHMEh68KLbuoKS1v9wtc0RYm455x5p001M0EMNKXM18/edit?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-desktop"></i> Voir la présentation
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Exercices 3.2</h3>
+        <p>Document PDF contenant les exercices à compléter.</p>
+        <a href="https://drive.google.com/file/d/1jwqg9QXIAcQnUVEHfYfNyC1bGOHX7S38/view?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-file-pdf-o"></i> Ouvrir les exercices
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Vidéo 3.2 - La probabilité théorique</h3>
+        <p>Vidéo explicative d'environ 8 minutes.</p>
+        <a class="video-link"
+           href="https://youtu.be/858u4SXN_Xs"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-youtube-play"></i> Regarder la vidéo
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
+</div>
+
+<script>
+  // Menu de navigation
+  function w3_open() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
+    if (sidebar) sidebar.style.display = "block";
+    if (overlay) overlay.style.display = "block";
+  }
+
+  function w3_close() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
+    if (sidebar) sidebar.style.display = "none";
+    if (overlay) overlay.style.display = "none";
+  }
+
+  // Barre supérieure lors du défilement
+  window.onscroll = function() {
+    const top = document.getElementById("myTop");
+    const intro = document.getElementById("myIntro");
+
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+      top.classList.add("w3-card-4", "w3-animate-opacity");
+      intro.classList.add("w3-show-inline-block");
+    } else {
+      intro.classList.remove("w3-show-inline-block");
+      top.classList.remove("w3-card-4", "w3-animate-opacity");
+    }
+  };
+</script>
+
+</body>
+</html>
