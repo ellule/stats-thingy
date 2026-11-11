@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MDM4U - Le calcul de la probabilité à l'aide d'ensembles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      line-height: 1.7;
+    }
+
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
+
+    .section-card {
+      background: #f5fafa;
+      border-left: 5px solid #009688;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .distribution-card {
+      background: white;
+      border: 1px solid #d5e5e3;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .video-link {
+      display: inline-block;
+      margin: 6px 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Barre de navigation -->
+<div id="nav-placeholder"></div>
+
+<script>
+  $(function() {
+    $("#nav-placeholder").load("nav.html");
+  });
+</script>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+  <!-- Barre supérieure -->
+  <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+    <p>
+      <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+         onclick="w3_open()"></i>
+      <span id="myIntro" class="w3-hide">MDM4U</span>
+    </p>
+  </div>
+
+  <!-- En-tête -->
+  <header class="w3-container w3-theme" style="padding:64px 32px">
+    <h1 class="w3-xxxlarge">3.3 - Le calcul de la probabilité à l'aide d'ensembles</h1>
+    <p>Utiliser les ensembles pour calculer des probabilités</p>
+    <p><i class="fa fa-calendar"></i> Jeudi 5 novembre 2026</p>
+  </header>
+
+  <main class="w3-container" style="padding:32px">
+
+    <!-- Introduction -->
+    <section class="section-card">
+      <h2><i class="fa fa-sitemap"></i> Introduction</h2>
+
+      <p>
+        Dans cette leçon, j'ai appris à calculer des probabilités
+        en utilisant des ensembles. Les ensembles permettent de
+        représenter les événements et de voir les liens entre eux.
+      </p>
+
+      <p>
+        On peut utiliser des diagrammes de Venn pour représenter
+        les événements et mieux comprendre les résultats possibles.
+      </p>
+    </section>
+
+    <!-- Notation -->
+    <section class="distribution-card">
+      <h2>1. Les symboles importants</h2>
+
+      <p>Voici les symboles utilisés pour travailler avec les ensembles :</p>
+
+      <div class="w3-responsive">
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-theme">
+              <th>Symbole</th>
+              <th>Signification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(A \cap B\)</td>
+              <td>L'intersection : les éléments qui sont dans A et dans B.</td>
+            </tr>
+            <tr>
+              <td>\(A \cup B\)</td>
+              <td>L'union : les éléments qui sont dans A ou dans B, ou dans les deux.</td>
+            </tr>
+            <tr>
+              <td>\(A'\)</td>
+              <td>Le complément : les éléments qui ne sont pas dans A.</td>
+            </tr>
+            <tr>
+              <td>\(\varnothing\)</td>
+              <td>L'ensemble vide : aucun élément.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Intersection -->
+    <section class="distribution-card">
+      <h2>2. L'intersection de deux événements</h2>
+
+      <p>
+        L'intersection représente les résultats qui sont communs
+        aux deux événements. Elle est représentée par le symbole
+        \(A \cap B\).
+      </p>
+
+      <div class="w3-panel w3-pale-teal w3-padding">
+        <p><strong>À retenir :</strong></p>
+        \[
+        A \cap B = \text{les éléments communs à A et B}
+        \]
+      </div>
+
+      <p>
+        Si deux événements n'ont aucun résultat en commun,
+        leur intersection est l'ensemble vide :
+      </p>
+
+      \[
+      A \cap B = \varnothing
+      \]
+
+      <p>
+        On dit alors que les événements sont mutuellement exclusifs.
+      </p>
+    </section>
+
+    <!-- Union -->
+    <section class="distribution-card">
+      <h2>3. L'union de deux événements</h2>
+
+      <p>
+        L'union représente tous les résultats qui se trouvent dans
+        A, dans B ou dans les deux ensembles. Elle est représentée
+        par le symbole \(A \cup B\).
+      </p>
+
+      <div class="w3-panel w3-pale-teal w3-padding">
+        \[
+        P(A \cup B)=P(A)+P(B)-P(A \cap B)
+        \]
+      </div>
+
+      <p>
+        On soustrait l'intersection parce que les résultats communs
+        aux deux événements sont comptés deux fois lorsqu'on additionne
+        \(P(A)\) et \(P(B)\).
+      </p>
+    </section>
+
+    <!-- Complément -->
+    <section class="distribution-card">
+      <h2>4. Le complément d'un événement</h2>
+
+      <p>
+        Le complément représente la probabilité qu'un événement
+        ne se produise pas. Il est représenté par \(A'\).
+      </p>
+
+      <div class="w3-panel w3-pale-teal w3-padding">
+        \[
+        P(A')=1-P(A)
+        \]
+      </div>
+
+      <p>
+        La probabilité d'un événement et celle de son complément
+        donnent toujours un total de 1, ou 100 %.
+      </p>
+    </section>
+
+    <!-- Diagrammes de Venn -->
+    <section class="section-card">
+      <h2>5. Les diagrammes de Venn</h2>
+
+      <p>
+        Les diagrammes de Venn servent à représenter visuellement
+        les relations entre les ensembles. Ils permettent de voir
+        les éléments qui appartiennent à A, à B, aux deux ensembles
+        ou à aucun des deux.
+      </p>
+
+      <ul>
+        <li><strong>Intersection :</strong> la partie où les deux ensembles se chevauchent.</li>
+        <li><strong>Union :</strong> toutes les parties qui appartiennent à A ou à B.</li>
+        <li><strong>Complément :</strong> la partie qui se trouve à l'extérieur de l'ensemble.</li>
+      </ul>
+    </section>
+
+    <!-- Travail -->
+    <section class="section-card">
+      <h2><i class="fa fa-pencil"></i> 6. Exercices 3.3</h2>
+
+      <p>
+        J'ai complété les exercices 3.3 à la main. Mes réponses,
+        mes calculs et mes diagrammes sont inclus dans le document
+        numérisé ci-dessous.
+      </p>
+
+      <div class="w3-center w3-padding-16">
+        <a href="exercices_3_3_calcul_probabilite_ensembles.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="w3-button w3-teal w3-round-large w3-padding-large">
+          <i class="fa fa-file-pdf-o"></i>
+          Voir mes exercices 3.3
+        </a>
+      </div>
+    </section>
+
+    <!-- Ressources -->
+    <section class="section-card">
+      <h2><i class="fa fa-book"></i> 7. Ressources du module</h2>
+
+      <div class="distribution-card">
+        <h3>Sondage rapide pour les explications de concepts</h3>
+        <p>Sondage utilisé pendant la leçon.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiQwaSSMq3wgGkpsz9TXOkwQhJD0JfWRxgajoVBNG3BbaoBw/viewform?usp=sf_link"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-list-alt"></i> Ouvrir le sondage
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Présentation 3.3</h3>
+        <p>Diapositives sur le calcul de la probabilité à l'aide d'ensembles.</p>
+        <a href="https://docs.google.com/presentation/d/1X_Sbmcm-hqapl_S5gMsqK7AUI2IhnYLw6AIj_n3nPyk/edit?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-desktop"></i> Voir les diapositives
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Notes pour élèves</h3>
+        <p>Notes qui accompagnent les diapositives.</p>
+        <a href="https://drive.google.com/file/d/1KxDLrHEtwWH5yQIyM48QptiJoiESyLIN/view?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-file-text-o"></i> Ouvrir les notes
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Version des notes remplies</h3>
+        <p>Corrigé des notes de cours.</p>
+        <a href="https://drive.google.com/file/d/1DRbQ4USe07kcPAkqYRqjGhbmfCLqW8LN/view?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-check-square-o"></i> Voir le corrigé
+        </a>
+      </div>
+
+      <div class="distribution-card">
+        <h3>Exercices 3.3</h3>
+        <p>Document PDF contenant les exercices à compléter.</p>
+        <a href="https://drive.google.com/file/d/1p2Zi2solAygnsWa484v7jbls4_fJkWw6/view?usp=sharing"
+           target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-file-pdf-o"></i> Ouvrir les exercices
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="w3-container w3-theme" style="padding:32px">
+    <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+  </footer>
+
+</div>
+
+<script>
+  // Menu de navigation
+  function w3_open() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
+    if (sidebar) sidebar.style.display = "block";
+    if (overlay) overlay.style.display = "block";
+  }
+
+  function w3_close() {
+    const sidebar = document.getElementById("mySidebar");
+    const overlay = document.getElementById("myOverlay");
+    if (sidebar) sidebar.style.display = "none";
+    if (overlay) overlay.style.display = "none";
+  }
+
+  // Barre supérieure lors du défilement
+  window.onscroll = function() {
+    const top = document.getElementById("myTop");
+    const intro = document.getElementById("myIntro");
+
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+      top.classList.add("w3-card-4", "w3-animate-opacity");
+      intro.classList.add("w3-show-inline-block");
+    } else {
+      intro.classList.remove("w3-show-inline-block");
+      top.classList.remove("w3-card-4", "w3-animate-opacity");
+    }
+  };
+</script>
+
+</body>
+</html>
